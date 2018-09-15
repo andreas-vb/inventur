@@ -1,21 +1,80 @@
-World Wide Web
-The WorldWideWeb (W3) is a wide-area hypermedia information retrieval initiative aiming to give universal access to a large universe of documents.
+<!DOCTYPE html>
+<html>
+<head>
+<title>WWW Project</title>
+</head>
+<body>
+<h1>World Wide Web</h1>
+<p>The WorldWideWeb (W3) is a wide-area hypermedia information retrieval initiative aiming to give universal access to a large universe of documents.</p>
 Everything there is online about W3 is linked directly or indirectly to this document, including an executive summary of the project, Mailing lists , Policy , November's W3 news , Frequently Asked Questions . 
-What's out there? 
-Pointers to the world's online information, subjects , W3 servers, etc. 
-Help 
-on the browser you are using 
-Software Products 
-A list of W3 project components and their current state. (e.g. Line Mode ,X11 Viola , NeXTStep , Servers , Tools , Mail robot , Library ) 
-Technical 
-Details of protocols, formats, program internals etc 
-Bibliography 
-Paper documentation on W3 and references. 
-People 
-A list of some people involved in the project. 
-History 
-A summary of the history of the project. 
-How can I help ? 
+<dl>
+<dt>What's out there? </dt>
+<dd>Pointers to the world's online information, subjects , W3 servers, etc. </dd>
+<dt>Help</dt> 
+<dd>on the browser you are using </dd>
+<dt>Software Products </dt>
+<dd>A list of W3 project components and their current state. (e.g. Line Mode ,X11 Viola , NeXTStep , Servers , Tools , Mail robot , Library ) </dd>
+<dt>Technical </dt>
+<dd>Details of protocols, formats, program internals etc </dd>
+<dt>Bibliography </dt>
+<dd>Paper documentation on W3 and references. </dd>
+<dt>People </dt>
+<dd>A list of some people involved in the project. </dd>
+<dt>History </dt>
+<dd>A summary of the history of the project. </dd>
+<dt>How can I help ? </dt>
 If you would like to support the web.. 
 Getting code 
 Getting the code by anonymous FTP , etc. 
+</dl>
+
+<a href=WhatIs.html">hypermedia</a>
+<img src="images/home.png" alt="Home"/>
+
+<table>
+<tr>
+<td>Anwendung</td>
+<td>HTTP</td>
+</tr>
+<tr>
+<td>transport</td>
+<td>TCP</td>
+</tr>
+<tr>
+<td>Internet</td>
+<td>IPv4/v6</td>
+</tr>
+<tr>
+<td>Netzzugänge</td>
+<td>Ethernet, Token Bus, Token Ring, FDDI, ...</td>
+</tr>
+</table>
+
+
+<form action="/w/index.php">
+<input type="text" name="search" />
+<input type="submit" name="submitsearch" value="Suchen"/>
+</form>
+<form method="post" action="check" enctype="multipart/form-data">
+<label for="upolad_file">File</label>
+<input type="file" name="upolad_file" id="upolad_file"/>
+<label for="charset">Encoding</label>
+<select name="charset" id="charset">
+<option value="utf-8">utf-8 Unicode>/option>
+<option value="utf-16">utf-16 Unicode>/option>
+</select>
+<input type="checkbox" name="source" id="source" value="1"/>
+<label for="source">Show Source</label>
+
+<input type="radio" name="group" id="group_no" value="0"/>
+<label for="group_no">List Messages Sequentially</label>
+<input type="radio" name="group" id="group_yes" value="1"/>
+<label for="group_yes">Group Error Messages</label>
+
+
+
+<input type="submit" value="Revalidate"/>
+</form>
+
+</body>
+</html>

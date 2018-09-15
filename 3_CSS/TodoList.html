@@ -3,9 +3,10 @@
   <head>
     <meta charset="utf-8"/>
     <title>Todo-Liste</title>
+	<link rel="stylesheet" type="text/css" href="./css/common.css"/>
   </head>
   <body>
-    <div>
+    <div id="header">
       <a href="TodoList.html"><img src="images/home.png" alt=""/></a>
       <h1>Todo-Liste</h1>
       <form action="..." method="post">
@@ -29,7 +30,7 @@
           </th>
           <th>Aktionen</th>
         </tr>
-        <tr>
+        <tr class="due">
           <td>2013-08-03</td>
           <td><a href="...">Auch das noch</a></td>
           <td>Sebastian</td>
@@ -72,10 +73,10 @@
           <td></td>
         </tr>
       </table>
-      <div>
+      <div id="pagesize_selector">
         Anzahl:
         <a href="...">5</a>
-        10
+        <span class="disabled">10</span>
         <a href="...">20</a>
         <a href="...">50</a>
       </div>
