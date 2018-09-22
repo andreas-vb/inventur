@@ -1,3 +1,8 @@
+<?php
+require "TodoFunctions.php";
+$todos = read_todos();
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -31,12 +36,14 @@
           </th>
           <th>Aktionen</th>
         </tr>
-        <tr class="due">
-          <td>2013-08-03</td>
-          <td><a class="due" href="...">Auch das noch</a></td>
-          <td>Sebastian</td>
+        <?php foreach ($todos as $todo) { ?>
+		<tr class="<?php if ($todo["due"] === TRUE) echo "due"; ?>">
+          <td><?php echo $todo["due_date"]; ?></td>
+          <td><a class="<?php if ($todo["due"] === "1") echo "due"; ?>" href="TodoDetails.php?id=<?php echo $todo["id"]; ?>"><?php echo htmlspecialchars($todo["title"]); ?></a></td>
+          <td><?php echo $todo["author"]; ?></td>
           <td></td>
         </tr>
+		<?php } ?>
       </table>
       <span id="pagesize_selector">
         Anzahl:
