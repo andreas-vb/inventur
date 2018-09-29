@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
 }
 
 	if (isset($_REQUEST["cancel"])) {
-		header("Location: TodoList.php");	
+		header("Location: Index.php");	
 		exit();
 	}
 	if (isset($_REQUEST["save"])) {
@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
 		$todo["notes"] = $_REQUEST["notes"];
 		$created = create_todo($todo);
 		if ($created === TRUE) {
-			header("Location: TodoList.php");
+			header("Location: Index.php");
 			exit();
 		}
 	}

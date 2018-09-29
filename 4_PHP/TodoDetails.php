@@ -1,7 +1,22 @@
 <?php 
 require "TodoFunctions.php";
+if (isset($_REQUEST["id"]) === FALSE) {
+	require "InvalidRequest.php";
+	exit();
+}
 $id = $_REQUEST["id"];
 $todo = read_todo($id);
+
+if ($todo === NULL) {
+	require "TodoNotFound.php";
+	exit();
+}
+
+if ($todo === FALSE) {
+	require "ServerError.php";
+	exit();
+}
+
 ?>
 
 <!DOCTYPE html> 

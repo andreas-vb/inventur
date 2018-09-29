@@ -1,11 +1,22 @@
 <?php
 function read_todo($id){
 $link = mysqli_connect("localhost","root","","todolist");
+if ($link === FALSE) {
+	return FALSE;
+}
+
 mysqli_set_charset($link, "utf8");
+
 $sql_statement = "SELECT id, created_date, due_date, author, title, notes ".
 				 "FROM todo ".
 				 "WHERE id = $id";
 $result_set = mysqli_query($link, $sql_statement);
+
+if ($result_set === FALSE) {
+	mysqli_close($link);
+	return FALSE;
+}
+
 $todo = mysqli_fetch_assoc($result_set);
 mysqli_close($link);
 return $todo;
