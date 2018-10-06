@@ -45,11 +45,15 @@ $app->get(
 	function ($request, $response, $id) {
 		$todo_service = new TodoService();
 		$todo = $todo_service->readTodo($id);
+		
 		if ($todo === TodoService::NOT_FOUND) {
 			$response = $response->withStatus(404);
 			return $response;
 		}
+		
 		unset($todo->id);
+		$response = $response->withHeader("Etag", $todo->version);
+		unset($todo->version);
 		$response = $response->withJson($todo);
 		return $response;
 	});
@@ -89,9 +93,18 @@ $app->put(
 		$todo->title = $request->getParsedBodyParam("title");
 		$todo->due_date = $request->getParsedBodyParam("due_date");
 		$todo->notes = $request->getParsedBodyParam("notes");
+		$todo->version = $request->getHeaderLine("If-Match");
 
  		$todo_service = new TodoService();
-		$todo_service->updateTodo($todo); 
+		$result = $todo_service->updateTodo($todo);
+		if ($result === TodoService::VERSION_OUTDATED) {
+			$response = $response->withStatus(412);
+			return $response;
+		}
+		if ($result === TodoService::NOT_FOUND) {
+			$response = $response->withStatus(404);
+			return $response;		
+		}
 	});
 
 $app->run();

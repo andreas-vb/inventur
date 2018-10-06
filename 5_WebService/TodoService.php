@@ -4,6 +4,7 @@
 		const NOT_FOUND = "NOT_FOUND";
 		const INVALID_INPUT = "INVALID_INPUT";
 		const OK = "OK";
+		const VERSION_OUTDATED = "VERSION_OUTDATED"; 
 		
 		public function updateTodo($todo) {
 			$link = new mysqli("localhost", "root", "", "todolist"); 
@@ -11,10 +12,25 @@
 			$update_statement = "UPDATE todo SET ".
 								"title = '$todo->title', ".
 								"due_date = '$todo->due_date', ".
-								"notes = '$todo->notes' ".
-								"WHERE id = $todo->id";
+								"notes = '$todo->notes', ".
+								"version = version + 1 ".
+								"WHERE id = $todo->id AND version = $todo->version";
 			$link->query($update_statement);
-			$link->close();
+			$affected_rows = $link->affected_rows;
+			if ($affected_rows === 0) {
+				$select_statement = "SELECT COUNT(*) FROM todo WHERE id = $todo->id";
+				$result_set = $link->query($select_statement);
+				$row = $result_set->fetch_row();
+				$link->close();
+				$count = intval($row[0]);
+				if ($count === 1) {
+					return TodoService::VERSION_OUTDATED;
+				}
+				return TodoService::NOT_FOUND;
+			}
+			ELSE {
+				$link->close();
+			}
 		}
 		
 		
@@ -39,10 +55,12 @@
 								"created_date = CURDATE(), ".
 								"due_date = '$todo->due_date', ".
 								"title = '$todo->title', ".
-								"notes = '$todo->notes'";
+								"notes = '$todo->notes',".
+								"version = 1";
 			$link->query($insert_statement);
 			$id = $link->insert_id;
 			$link->close();
+			$result = new CreateTodoResult();
 			$result->status_code = TodoService::OK;
 			$result->id = $id;
 			return $result;
@@ -51,7 +69,7 @@
 		public function readTodo($id) {
 			$link = new mysqli("localhost", "root", "", "todolist"); 
 			$link->set_charset("utf8");
-			$select_statement =	"SELECT id, created_date, due_date, ".
+			$select_statement =	"SELECT id, created_date, due_date, version, ".
 								"due_date <= CURDATE() as due, author, title, notes ".
 								"FROM todo ".
 								"WHERE id = $id";
@@ -71,7 +89,7 @@
 				return TodoService::DATABASE_ERROR;
 			}
 			$link->set_charset("utf8");
-			$select_statement =	"SELECT id, created_date, due_date, ".
+			$select_statement =	"SELECT id, created_date, due_date, version, ".
 								"due_date <= CURDATE() as due, author, title, notes ".
 								"FROM todo ".
 								"ORDER BY due_date ASC";
