@@ -3,6 +3,7 @@ require "vendor\autoload.php";
 require "IgnoreCaseMiddleware.php";
 require "DenyCachingMiddleware.php";
 require "Todo.php";
+require "CreateTodoResult.php";
 require "TodoService.php";
 
 $config = [
@@ -53,14 +54,45 @@ $app->get(
 		return $response;
 	});
 
-$app->post (
+$app->post(
 	"/todos",
 	function ($request, $response) {
+		$todo = new Todo();
+		$todo->title = $request->getParsedBodyParam("title");
+		$todo->due_date = $request->getParsedBodyParam("due_date");
+		$todo->notes = $request->getParsedBodyParam("notes");
+		
+		$todo_service = new TodoService();
+		$result = $todo_service->createTodo($todo); 
+		
+		if ($result->status_code === TodoService::INVALID_INPUT) {
+					$response = $response->withstatus(400);
+					return $response->withJson($result->validation_messages);
+				}
 		$response = $response->withStatus(201);
-		$response = $response->withHeader("Location", "/andreas-vb/5_WebService/todos/9999");
+		$response = $response->withHeader("Location", "/andreas-vb/5_WebService/todos/$result->id");
 		return $response;
 	});	
 	
+$app->delete (
+	"/todos/{id}", 
+	function ($request, $response, $id) {
+		$todo_service = new TodoService();
+		$todo_service->deleteTodo($id);
+	});
 	
+$app->put(
+	"/todos/{id}", 
+	function ($request, $response, $id) {
+		$todo = new Todo();
+		$todo->id = $id;
+		$todo->title = $request->getParsedBodyParam("title");
+		$todo->due_date = $request->getParsedBodyParam("due_date");
+		$todo->notes = $request->getParsedBodyParam("notes");
+
+ 		$todo_service = new TodoService();
+		$todo_service->updateTodo($todo); 
+	});
+
 $app->run();
 ?>
