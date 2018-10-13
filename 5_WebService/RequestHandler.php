@@ -17,7 +17,7 @@ $config = [
 
 $app = new \Slim\App($config);
 $app->add(new IgnoreCaseMiddleware());
-//$app->add(new DenyCachingMiddleware());
+$app->add(new DenyCachingMiddleware());
 
 $app->get(
   "/todos",
