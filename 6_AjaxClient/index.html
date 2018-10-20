@@ -7,11 +7,14 @@
     <link rel="stylesheet" href="./css/application.css" />
     <script src="./javascript/jquery-1.10.2.js"></script>
     <script src="./javascript/jquery-ui-1.10.4.js"></script>
+	<script src="./javascript/jquery.blockUI.js"></script>
+	<script src="./javascript/jquery.ui.datepicker-de.js"></script>
     <script src="./javascript/todo.todolist.js"></script>
 	<script src="./javascript/todo.tododetails.js"></script>
 	<script src="./javascript/todo.errordialog.js"></script>
 	<script src="./javascript/todo.deletedialog.js"></script>
 	<script src="./javascript/todo.editdialog.js"></script>
+    <script src="./javascript/todo.menubar.js"></script>
     <script src="./javascript/application.js"></script>
   </head>
   <body>  
@@ -22,6 +25,7 @@
 			<span>|</span>
 			<span>Wann?</span>
 			<span class="due_date"></span>
+			<a class="edit_todo" href="#">Bearbeiten</a>
 			<a class="delete_todo" href="#">Löschen</a>
 			<span class="title"></span>
 		</div>
@@ -62,6 +66,10 @@
           </tr>
         </table>
       </form>
+    </div>
+	    <div id="menu_bar">
+      <a class="show_todos" href="#">Alle Todos</a>
+      <a class="create_todo" href="#">Neues Todo</a>
     </div>
   </body>
 </html>

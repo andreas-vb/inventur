@@ -31,7 +31,11 @@ $.widget("todo.todoList", {
 			});	
 			todoElement.find(".delete_todo").click(todo.url, function(event) {
 				that._trigger("onDeleteTodoClicked", null, event.data);
-				return false;
+				return false;			//Verhindert, dass übergeordnete Clickhandler ausgeführt werden, die Bearbeitung wird also unterbrochen.
+			});
+			todoElement.find(".edit_todo").click(todo, function(event) {
+				that._trigger("onEditTodoClicked", null, event.data);
+				return false;			//Verhindert, dass übergeordnete Clickhandler ausgeführt werden, die Bearbeitung wird also unterbrochen.
 			});
 			this.element.append(todoElement);
 		}
