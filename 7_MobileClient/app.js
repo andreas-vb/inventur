@@ -18,8 +18,18 @@ Ext.application({
     ],
 
     views: [
-        'Main'
+        'Main',
+		'TodoList',
+		'TodoForm'
     ],
+	
+	controllers: [
+		'AppController'
+	],
+	
+	stores: [
+		'Todos'
+	],
 
     icon: {
         '57': 'resources/icons/Icon.png',
