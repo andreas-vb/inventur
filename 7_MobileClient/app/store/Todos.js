@@ -16,9 +16,7 @@ Ext.define('Todoliste.store.Todos', {
 				}
 			}
 		},
-		fields: [
-			'title'
-		],
+		model: 'Todoliste.model.Todo',
 		autoLoad: true
 	}
 });

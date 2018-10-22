@@ -14,17 +14,24 @@ Ext.application({
     name: 'Todoliste',
 
     requires: [
-        'Ext.MessageBox'
+        'Ext.MessageBox',
+		'Todoliste.plugin.PullRefresh',
+		'Todoliste.data.proxy.Rest'
     ],
 
     views: [
         'Main',
 		'TodoList',
-		'TodoForm'
+		'TodoForm',
+		'MessageBox'
     ],
 	
 	controllers: [
 		'AppController'
+	],
+	
+	models: [
+		'Todo'
 	],
 	
 	stores: [

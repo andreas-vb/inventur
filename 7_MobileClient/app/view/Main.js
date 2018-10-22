@@ -5,6 +5,17 @@ Ext.define('Todoliste.view.Main', {
 		items: {
 			xtype: 'todolist'
 		},
-		defaultBackButtonText: 'Zurück'
+		defaultBackButtonText: 'Zurück',
+		navigationBar: {
+			items: [
+				{
+					xtype: 'button',
+					text: 'Löschen',
+					align: 'right',
+					id: 'deletebutton',
+					hidden: true
+				}
+			]
+		}
 	}
 });
