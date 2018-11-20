@@ -1,0 +1,8 @@
+Name	
+Teilenummer	autoincrement
+Bestand	
+Preis	
+Farbe	
+Notiz	
+Datum Inventur	
+Datum nächste Inventur/Fälligkeit	berechnet
