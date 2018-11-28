@@ -1,0 +1,6 @@
+teilenr','name','notes','inventur_date','farbe','bestand','preis
+(1,'Airbag','neu','2018-03-10','schwarz','4','50')
+(2,'Lenkrad','beheizt, Leder','2018-03-11','braun','5','51')
+(3,'Bremsscheibe','2er Set vorne','2018-03-12','keine','6','52')
+(4,'Kofferraumabdeckung','für Kombi','2018-03-13','hellgrau','7','53')
+(5,'Motorhaube','unlackiert','2018-03-14','keine','8','54')

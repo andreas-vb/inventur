@@ -17,30 +17,32 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Datenbank: `todolist`
+-- Datenbank: `inventur`
 --
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `todo`
+-- Tabellenstruktur für Tabelle `inventur`
 --
 
-CREATE TABLE IF NOT EXISTS `todo` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+CREATE TABLE IF NOT EXISTS `inventur` (
+  `teilenr` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `notes` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `created_date` date NOT NULL,
+  `inventur_date` date NOT NULL,
   `due_date` date NOT NULL,
-  `author` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `farbe` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `bestand` int(11),
+  `preis` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
--- Daten für Tabelle `todo`
+-- Daten für Tabelle `inventur`
 --
 
-INSERT INTO `todo` (`id`, `title`, `notes`, `created_date`, `due_date`, `author`) VALUES
+INSERT INTO `inventur` (`teilenr`, `name`, `notes`, `inventur_date`, `due_date`, `farbe`, `bestand`, `preis`) VALUES
 (1, 'Dies', 'Dies ist noch zu tun', '2018-04-08', '2018-10-04', 'Marc'),
 (2, 'Das', 'Das ist noch zu tun', '2018-04-08', '2018-11-17', 'Patric'),
 (3, 'Jenes', 'Jenes ist noch zu tun', '2018-04-08', '2018-12-21', 'Marc'),
