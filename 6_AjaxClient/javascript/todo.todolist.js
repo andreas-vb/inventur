@@ -1,7 +1,7 @@
 $.widget("todo.todoList", {  
   _create: function() { 
 	$.ajax({
-		url: "/andreas-vb/5_WebService/todos", 
+		url: "/inventur/5_WebService/todos", 
 		dataType: "json",
 		success: this._appendTodos,
 		context: this
@@ -11,7 +11,7 @@ $.widget("todo.todoList", {
   reload: function() {
 	this.element.find(".todo:not(.template)").remove();
 	$.ajax({
-		url: "/andreas-vb/5_WebService/todos", 
+		url: "/inventur/5_WebService/todos", 
 		dataType: "json",
 		success: this._appendTodos,
 		context: this

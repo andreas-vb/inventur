@@ -26,7 +26,7 @@ $app->get(
 	$todos = $todo_service->readTodos();
 	
 	foreach ($todos as $todo) {
-		$todo->url = "/andreas-vb/5_WebService/todos/$todo->id";
+		$todo->url = "/inventur/5_WebService/todos/$todo->id";
 		unset($todo->id);
 	}
 	
@@ -74,7 +74,7 @@ $app->post(
 					return $response->withJson($result->validation_messages);
 				}
 		$response = $response->withStatus(201);
-		$response = $response->withHeader("Location", "/andreas-vb/5_WebService/todos/$result->id");
+		$response = $response->withHeader("Location", "/inventur/5_WebService/todos/$result->id");
 		return $response;
 	});	
 	
