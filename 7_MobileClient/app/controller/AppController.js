@@ -28,7 +28,7 @@ Ext.define('Todoliste.controller.AppController', {
 	},
 	
 	showConfirmDeleteDialog: function() {
-		Ext.Msg.confirm('Löschen', 'Wirklich löschen?', this.deleteTodo, this);
+		Ext.Msg.confirm('Löschen', 'Wirklich löschen?', this.deleteAutoteil, this);
 	},
 	
 	deleteTodo: function(buttonId) {

@@ -23,7 +23,7 @@ $app->get(
   "/todos",
   function ($request, $response) {
 	$autoteil_service = new AutoTeileService();
-	$autoteils = $autoteil_service->readTodos();
+	$autoteils = $autoteil_service->readAutoteile();
 	
 	foreach ($autoteils as $autoteil) {
 		$autoteil->url = "/inventur/WebService/todos/$autoteil->id";
@@ -44,7 +44,7 @@ $app->get(
 	"/todos/{id}",
 	function ($request, $response, $id) {
 		$autoteil_service = new AutoTeileService();
-		$autoteil = $autoteil_service->readTodo($id);
+		$autoteil = $autoteil_service->readAutoteil($id);
 		
 		if ($autoteil === AutoTeileService::NOT_FOUND) {
 			$response = $response->withStatus(404);
@@ -82,7 +82,7 @@ $app->delete (
 	"/todos/{id}", 
 	function ($request, $response, $id) {
 		$autoteil_service = new AutoTeileService();
-		$autoteil_service->deleteTodo($id);
+		$autoteil_service->deleteAutoteil($id);
 	});
 	
 $app->put(
@@ -103,7 +103,7 @@ $app->put(
 		}		
 		
  		$autoteil_service = new AutoTeileService();
-		$result = $autoteil_service->updateTodo($autoteil);
+		$result = $autoteil_service->updateAutoteil($autoteil);
 		if ($result === AutoTeileService::VERSION_OUTDATED) {
 			$response = $response->withStatus(412);
 			return $response;

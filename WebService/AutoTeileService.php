@@ -6,7 +6,7 @@
 		const OK = "OK";
 		const VERSION_OUTDATED = "VERSION_OUTDATED"; 
 		
-		public function updateTodo($autoteil) {
+		public function updateAutoteil($autoteil) {
 			$link = new mysqli("localhost", "root", "", "todolist"); 
 			$link->set_charset("utf8");
 			$update_statement = "UPDATE todo SET ".
@@ -34,7 +34,7 @@
 		}
 		
 		
-		public function deleteTodo($id) {
+		public function deleteAutoteil($id) {
 			$link = new mysqli("localhost", "root", "", "todolist"); 
 			$link->set_charset("utf8"); //nicht notwendig, da keine Zeichen in die DB geschrieben werden
 			$delete_statement = "DELETE FROM todo WHERE id = $id";
@@ -66,7 +66,7 @@
 			return $result;
 		}
 		
-		public function readTodo($id) {
+		public function readAutoteil($id) {
 			$link = new mysqli("localhost", "root", "", "todolist"); 
 			$link->set_charset("utf8");
 			$select_statement =	"SELECT id, created_date, due_date, version, ".
@@ -83,7 +83,7 @@
 		}
 		
 		
-		public function readTodos(){
+		public function readAutoteile(){
 		    $link = new mysqli("localhost", "root", "", "todolist"); 
 			if ($link->connect_error !== NULL) {
 				return AutoTeileService::DATABASE_ERROR;
