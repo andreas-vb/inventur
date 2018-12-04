@@ -1,3 +1,0 @@
-"SELECT id, created_date, due_date, author, title, notes ".
-"FROM todo ".
-"WHERE id = $id";
