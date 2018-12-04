@@ -26,7 +26,7 @@ $app->get(
 	$autoteils = $autoteil_service->readTodos();
 	
 	foreach ($autoteils as $autoteil) {
-		$autoteil->url = "/inventur/5_WebService/todos/$autoteil->id";
+		$autoteil->url = "/inventur/WebService/todos/$autoteil->id";
 		unset($autoteil->id);
 	}
 	
@@ -74,7 +74,7 @@ $app->post(
 					return $response->withJson($result->validation_messages);
 				}
 		$response = $response->withStatus(201);
-		$response = $response->withHeader("Location", "/inventur/5_WebService/todos/$result->id");
+		$response = $response->withHeader("Location", "/inventur/WebService/todos/$result->id");
 		return $response;
 	});	
 	

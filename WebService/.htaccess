@@ -11,5 +11,5 @@ RewriteRule ^ RequestHandler.php [QSA,L]
 
 AuthType Basic
 AuthName "Todo-Liste"
-AuthUserFile "c:\xampp\htdocs\inventur\5_WebService\.htusers"
+AuthUserFile "c:\xampp\htdocs\inventur\WebService\.htusers"
 Require valid-user
