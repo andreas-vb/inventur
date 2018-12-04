@@ -22,52 +22,52 @@ $app->add(new DenyCachingMiddleware());
 $app->get(
   "/todos",
   function ($request, $response) {
-	$todo_service = new AutoTeileService();
-	$todos = $todo_service->readTodos();
+	$autoteil_service = new AutoTeileService();
+	$autoteils = $autoteil_service->readTodos();
 	
-	foreach ($todos as $todo) {
-		$todo->url = "/inventur/5_WebService/todos/$todo->id";
-		unset($todo->id);
+	foreach ($autoteils as $autoteil) {
+		$autoteil->url = "/inventur/5_WebService/todos/$autoteil->id";
+		unset($autoteil->id);
 	}
 	
 	
-	if ($todos === AutoTeileService::DATABASE_ERROR) {
+	if ($autoteils === AutoTeileService::DATABASE_ERROR) {
 		$response = $response->withStatus(500);
 		return $response;
 	}
 	
-	$response = $response->withJson($todos);
+	$response = $response->withJson($autoteils);
 	return $response;
   });
   
 $app->get(
 	"/todos/{id}",
 	function ($request, $response, $id) {
-		$todo_service = new AutoTeileService();
-		$todo = $todo_service->readTodo($id);
+		$autoteil_service = new AutoTeileService();
+		$autoteil = $autoteil_service->readTodo($id);
 		
-		if ($todo === AutoTeileService::NOT_FOUND) {
+		if ($autoteil === AutoTeileService::NOT_FOUND) {
 			$response = $response->withStatus(404);
 			return $response;
 		}
 		
-		unset($todo->id);
-		$response = $response->withHeader("Etag", $todo->version);
-		unset($todo->version);
-		$response = $response->withJson($todo);
+		unset($autoteil->id);
+		$response = $response->withHeader("Etag", $autoteil->version);
+		unset($autoteil->version);
+		$response = $response->withJson($autoteil);
 		return $response;
 	});
 
 $app->post(
 	"/todos",
 	function ($request, $response) {
-		$todo = new Autoteil();
-		$todo->title = $request->getParsedBodyParam("title");
-		$todo->due_date = $request->getParsedBodyParam("due_date");
-		$todo->notes = $request->getParsedBodyParam("notes");
+		$autoteil = new Autoteil();
+		$autoteil->title = $request->getParsedBodyParam("title");
+		$autoteil->due_date = $request->getParsedBodyParam("due_date");
+		$autoteil->notes = $request->getParsedBodyParam("notes");
 		
-		$todo_service = new AutoTeileService();
-		$result = $todo_service->createTodo($todo); 
+		$autoteil_service = new AutoTeileService();
+		$result = $autoteil_service->createTodo($autoteil); 
 		
 		if ($result->status_code === AutoTeileService::INVALID_INPUT) {
 					$response = $response->withstatus(400);
@@ -81,29 +81,29 @@ $app->post(
 $app->delete (
 	"/todos/{id}", 
 	function ($request, $response, $id) {
-		$todo_service = new AutoTeileService();
-		$todo_service->deleteTodo($id);
+		$autoteil_service = new AutoTeileService();
+		$autoteil_service->deleteTodo($id);
 	});
 	
 $app->put(
 	"/todos/{id}", 
 	function ($request, $response, $id) {
-		$todo = new Autoteil();
-		$todo->id = $id;
-		$todo->title = $request->getParsedBodyParam("title");
-		$todo->due_date = $request->getParsedBodyParam("due_date");
-		$todo->notes = $request->getParsedBodyParam("notes");
-		$todo->version = $request->getHeaderLine("If-Match");
+		$autoteil = new Autoteil();
+		$autoteil->id = $id;
+		$autoteil->title = $request->getParsedBodyParam("title");
+		$autoteil->due_date = $request->getParsedBodyParam("due_date");
+		$autoteil->notes = $request->getParsedBodyParam("notes");
+		$autoteil->version = $request->getHeaderLine("If-Match");
 
-		if ($todo->title == "") {
+		if ($autoteil->title == "") {
 			$validation_messages = array();
 			$validation_messages["title"] = "Der Titel ist eine Pflichtangabe. Bitte geben Sie einen Titel an.";
 			$response = $response->withStatus(400);
 			return $response->withJson($validation_messages);
 		}		
 		
- 		$todo_service = new AutoTeileService();
-		$result = $todo_service->updateTodo($todo);
+ 		$autoteil_service = new AutoTeileService();
+		$result = $autoteil_service->updateTodo($autoteil);
 		if ($result === AutoTeileService::VERSION_OUTDATED) {
 			$response = $response->withStatus(412);
 			return $response;

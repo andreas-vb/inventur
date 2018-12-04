@@ -5,14 +5,14 @@ if (isset($_REQUEST["id"]) === FALSE) {
 	exit();
 }
 $id = $_REQUEST["id"];
-$todo = read_todo($id);
+$autoteil = read_todo($id);
 
-if ($todo === NULL) {
+if ($autoteil === NULL) {
 	require "TodoNotFound.php";
 	exit();
 }
 
-if ($todo === FALSE) {
+if ($autoteil === FALSE) {
 	require "ServerError.php";
 	exit();
 }
@@ -28,7 +28,7 @@ if ($todo === FALSE) {
   </head>
   <body>
     <div id="header">
-      <h1><?php echo htmlspecialchars($todo["title"]); ?></h1>
+      <h1><?php echo htmlspecialchars($autoteil["title"]); ?></h1>
       <a href="TodoList.html" id="home"><img src="images/home.png" alt=""/></a>
     </div>
     <div>
@@ -49,19 +49,19 @@ if ($todo === FALSE) {
               <label for="due_date">Fällig</label><span class="label">, </span>
               <label for="author">Autor:</label></td>
             <td id="due_date_td">
-              <input type="text" name="due_date" id="due_date" value= "<?php echo $todo["due_date"]; ?>" readonly="readonly" disabled="disabled"/>
+              <input type="text" name="due_date" id="due_date" value= "<?php echo $autoteil["due_date"]; ?>" readonly="readonly" disabled="disabled"/>
             </td>
             <td id="created_date_td">
-              <input type="text" name="created_date" id="created_date" value= "<?php echo $todo["created_date"]; ?>" readonly="readonly" disabled="disabled"/>
+              <input type="text" name="created_date" id="created_date" value= "<?php echo $autoteil["created_date"]; ?>" readonly="readonly" disabled="disabled"/>
             </td>
             <td id="author_td">
-              <input type="text" name="author" id="author" value= "<?php echo $todo["author"]; ?>" readonly="readonly" disabled="disabled" />
+              <input type="text" name="author" id="author" value= "<?php echo $autoteil["author"]; ?>" readonly="readonly" disabled="disabled" />
             </td>
           </tr>
           <tr>
             <td><label for="notes">Notizen:</label></td>
             <td colspan="3">
-              <textarea name="notes" id="notes" rows="10" cols="10" readonly="readonly" disabled="disabled"><?php echo htmlspecialchars($todo["notes"]); ?></textarea>
+              <textarea name="notes" id="notes" rows="10" cols="10" readonly="readonly" disabled="disabled"><?php echo htmlspecialchars($autoteil["notes"]); ?></textarea>
             </td>
           </tr>
           <tr>

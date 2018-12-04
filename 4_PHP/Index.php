@@ -1,6 +1,6 @@
 <?php
 require "TodoFunctions.php";
-$todos = read_todos();
+$autoteils = read_todos();
 ?>
 
 <!DOCTYPE html>
@@ -36,11 +36,11 @@ $todos = read_todos();
           </th>
           <th>Aktionen</th>
         </tr>
-        <?php foreach ($todos as $todo) { ?>
-		<tr class="<?php if ($todo["due"] === TRUE) echo "due"; ?>">
-          <td><?php echo $todo["due_date"]; ?></td>
-          <td><a class="<?php if ($todo["due"] === "1") echo "due"; ?>" href="TodoDetails.php?id=<?php echo $todo["id"]; ?>"><?php echo htmlspecialchars($todo["title"]); ?></a></td>
-          <td><?php echo $todo["author"]; ?></td>
+        <?php foreach ($autoteils as $autoteil) { ?>
+		<tr class="<?php if ($autoteil["due"] === TRUE) echo "due"; ?>">
+          <td><?php echo $autoteil["due_date"]; ?></td>
+          <td><a class="<?php if ($autoteil["due"] === "1") echo "due"; ?>" href="TodoDetails.php?id=<?php echo $autoteil["id"]; ?>"><?php echo htmlspecialchars($autoteil["title"]); ?></a></td>
+          <td><?php echo $autoteil["author"]; ?></td>
           <td></td>
         </tr>
 		<?php } ?>

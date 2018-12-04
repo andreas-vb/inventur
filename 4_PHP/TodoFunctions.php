@@ -17,9 +17,9 @@ if ($result_set === FALSE) {
 	return FALSE;
 }
 
-$todo = mysqli_fetch_assoc($result_set);
+$autoteil = mysqli_fetch_assoc($result_set);
 mysqli_close($link);
-return $todo;
+return $autoteil;
 }
 
 function read_todos(){
@@ -29,25 +29,25 @@ function read_todos(){
 				 "FROM todo ".
 				 "ORDER BY due_date ASC";
 	$result_set = mysqli_query($link, $sql_statement);
-	$todos = mysqli_fetch_all($result_set, MYSQLI_ASSOC);
+	$autoteils = mysqli_fetch_all($result_set, MYSQLI_ASSOC);
 	
 	
     mysqli_close($link);
-	return $todos;
+	return $autoteils;
 
 }
 
-function create_todo($todo) {
-	if ($todo["title"] === "") {
+function create_todo($autoteil) {
+	if ($autoteil["title"] === "") {
 		return FALSE;
 	}
 	$link = mysqli_connect("localhost","root","","todolist");
 	mysqli_set_charset($link, "utf8");
 	$sql_statement = "INSERT INTO todo SET ".
 					"created_date = CURDATE(), ".
-					"due_date = '$todo[due_date]', ".
-					"title = '$todo[title]', ".
-					"notes = '$todo[notes]'";
+					"due_date = '$autoteil[due_date]', ".
+					"title = '$autoteil[title]', ".
+					"notes = '$autoteil[notes]'";
 	mysqli_query($link, $sql_statement);
 	mysqli_close($link);
 	return TRUE;

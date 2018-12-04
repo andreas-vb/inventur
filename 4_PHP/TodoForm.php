@@ -3,10 +3,10 @@
 require "TodoFunctions.php";
 
 if ($_SERVER["REQUEST_METHOD"] === "GET") {
-	$todo = array ();
-	$todo["title"] = "";
-	$todo["due_date"] = "";
-	$todo["notes"] = "";
+	$autoteil = array ();
+	$autoteil["title"] = "";
+	$autoteil["due_date"] = "";
+	$autoteil["notes"] = "";
 }
 
 	if (isset($_REQUEST["cancel"])) {
@@ -14,11 +14,11 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
 		exit();
 	}
 	if (isset($_REQUEST["save"])) {
-		$todo = array();
-		$todo["title"] = $_REQUEST["title"];
-		$todo["due_date"] = $_REQUEST["due_date"];
-		$todo["notes"] = $_REQUEST["notes"];
-		$created = create_todo($todo);
+		$autoteil = array();
+		$autoteil["title"] = $_REQUEST["title"];
+		$autoteil["due_date"] = $_REQUEST["due_date"];
+		$autoteil["notes"] = $_REQUEST["notes"];
+		$created = create_todo($autoteil);
 		if ($created === TRUE) {
 			header("Location: Index.php");
 			exit();
@@ -62,16 +62,16 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
             <td><label for="due_date">Fällig</label><span class="label">, </span>
                  <label for="title">Titel:</label></td>
             <td id="due_date_td">
-              <input type="text" name="due_date" id="due_date" value="<?php echo $todo["due_date"]; ?>" />
+              <input type="text" name="due_date" id="due_date" value="<?php echo $autoteil["due_date"]; ?>" />
             </td>
             <td id="title_td">
-              <input type="text" name="title" id="title" value="<?php echo $todo["title"]; ?>" />
+              <input type="text" name="title" id="title" value="<?php echo $autoteil["title"]; ?>" />
             </td>
           </tr>
           <tr>
             <td><label for="notes">Notizen:</label></td>
             <td colspan="2">
-              <textarea name="notes" id="notes" rows="10" cols="10"><?php echo $todo["notes"]; ?></textarea>
+              <textarea name="notes" id="notes" rows="10" cols="10"><?php echo $autoteil["notes"]; ?></textarea>
             </td>
           </tr>
           <tr>

@@ -1,4 +1,4 @@
-    if ($todo->title == "") {
+    if ($autoteil->title == "") {
       $validation_messages = array();
       $validation_messages["title"] = "Der Titel ist eine Pflichtangabe. Bitte geben Sie einen Titel an.";
       $response = $response->withStatus(400);

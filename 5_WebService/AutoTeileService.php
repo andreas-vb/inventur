@@ -6,19 +6,19 @@
 		const OK = "OK";
 		const VERSION_OUTDATED = "VERSION_OUTDATED"; 
 		
-		public function updateTodo($todo) {
+		public function updateTodo($autoteil) {
 			$link = new mysqli("localhost", "root", "", "todolist"); 
 			$link->set_charset("utf8");
 			$update_statement = "UPDATE todo SET ".
-								"title = '$todo->title', ".
-								"due_date = '$todo->due_date', ".
-								"notes = '$todo->notes', ".
+								"title = '$autoteil->title', ".
+								"due_date = '$autoteil->due_date', ".
+								"notes = '$autoteil->notes', ".
 								"version = version + 1 ".
-								"WHERE id = $todo->id AND version = $todo->version";
+								"WHERE id = $autoteil->id AND version = $autoteil->version";
 			$link->query($update_statement);
 			$affected_rows = $link->affected_rows;
 			if ($affected_rows === 0) {
-				$select_statement = "SELECT COUNT(*) FROM todo WHERE id = $todo->id";
+				$select_statement = "SELECT COUNT(*) FROM todo WHERE id = $autoteil->id";
 				$result_set = $link->query($select_statement);
 				$row = $result_set->fetch_row();
 				$link->close();
@@ -42,8 +42,8 @@
 			$link->close();
 		}
 		
-		public function createTodo($todo) {
-			if ($todo->title === "") {
+		public function createTodo($autoteil) {
+			if ($autoteil->title === "") {
 				$result = new CreateTodoResult();
 				$result->status_code = AutoTeileService::INVALID_INPUT;
 				$result->validation_messages["title"] = "Der Titel ist eine Pflichtangabe. Bitte geben Sie einen Titel an.";
@@ -53,9 +53,9 @@
 			$link->set_charset("utf8");
 			$insert_statement = "INSERT INTO todo SET ".
 								"created_date = CURDATE(), ".
-								"due_date = '$todo->due_date', ".
-								"title = '$todo->title', ".
-								"notes = '$todo->notes',".
+								"due_date = '$autoteil->due_date', ".
+								"title = '$autoteil->title', ".
+								"notes = '$autoteil->notes',".
 								"version = 1";
 			$link->query($insert_statement);
 			$id = $link->insert_id;
@@ -74,12 +74,12 @@
 								"FROM todo ".
 								"WHERE id = $id";
 			$result_set = $link->query($select_statement);
-			$todo = $result_set->fetch_object("Autoteil");
+			$autoteil = $result_set->fetch_object("Autoteil");
 			$link->close();
-			if ($todo === NULL) {
+			if ($autoteil === NULL) {
 				return AutoTeileService::NOT_FOUND;
 			}
-			return $todo;
+			return $autoteil;
 		}
 		
 		
@@ -95,14 +95,14 @@
 								"ORDER BY due_date ASC";
 			$result_set = $link->query($select_statement);
 			
-			$todos = array();
-			$todo = $result_set->fetch_object("Autoteil");
-			while($todo !== NULL) {
-				$todos[] = $todo;
-				$todo = $result_set->fetch_object("Autoteil");
+			$autoteils = array();
+			$autoteil = $result_set->fetch_object("Autoteil");
+			while($autoteil !== NULL) {
+				$autoteils[] = $autoteil;
+				$autoteil = $result_set->fetch_object("Autoteil");
 				}
 			$link->close();
-			return $todos;
+			return $autoteils;
 		}
 	}
 ?>
