@@ -4,7 +4,7 @@ require "IgnoreCaseMiddleware.php";
 require "DenyCachingMiddleware.php";
 require "Todo.php";
 require "CreateTodoResult.php";
-require "TodoService.php";
+require "AutoTeileService.php";
 
 $config = [
     "settings" => [ 
@@ -22,7 +22,7 @@ $app->add(new DenyCachingMiddleware());
 $app->get(
   "/todos",
   function ($request, $response) {
-	$todo_service = new TodoService();
+	$todo_service = new AutoTeileService();
 	$todos = $todo_service->readTodos();
 	
 	foreach ($todos as $todo) {
@@ -31,7 +31,7 @@ $app->get(
 	}
 	
 	
-	if ($todos === TodoService::DATABASE_ERROR) {
+	if ($todos === AutoTeileService::DATABASE_ERROR) {
 		$response = $response->withStatus(500);
 		return $response;
 	}
@@ -43,10 +43,10 @@ $app->get(
 $app->get(
 	"/todos/{id}",
 	function ($request, $response, $id) {
-		$todo_service = new TodoService();
+		$todo_service = new AutoTeileService();
 		$todo = $todo_service->readTodo($id);
 		
-		if ($todo === TodoService::NOT_FOUND) {
+		if ($todo === AutoTeileService::NOT_FOUND) {
 			$response = $response->withStatus(404);
 			return $response;
 		}
@@ -66,10 +66,10 @@ $app->post(
 		$todo->due_date = $request->getParsedBodyParam("due_date");
 		$todo->notes = $request->getParsedBodyParam("notes");
 		
-		$todo_service = new TodoService();
+		$todo_service = new AutoTeileService();
 		$result = $todo_service->createTodo($todo); 
 		
-		if ($result->status_code === TodoService::INVALID_INPUT) {
+		if ($result->status_code === AutoTeileService::INVALID_INPUT) {
 					$response = $response->withstatus(400);
 					return $response->withJson($result->validation_messages);
 				}
@@ -81,7 +81,7 @@ $app->post(
 $app->delete (
 	"/todos/{id}", 
 	function ($request, $response, $id) {
-		$todo_service = new TodoService();
+		$todo_service = new AutoTeileService();
 		$todo_service->deleteTodo($id);
 	});
 	
@@ -102,13 +102,13 @@ $app->put(
 			return $response->withJson($validation_messages);
 		}		
 		
- 		$todo_service = new TodoService();
+ 		$todo_service = new AutoTeileService();
 		$result = $todo_service->updateTodo($todo);
-		if ($result === TodoService::VERSION_OUTDATED) {
+		if ($result === AutoTeileService::VERSION_OUTDATED) {
 			$response = $response->withStatus(412);
 			return $response;
 		}
-		if ($result === TodoService::NOT_FOUND) {
+		if ($result === AutoTeileService::NOT_FOUND) {
 			$response = $response->withStatus(404);
 			return $response;		
 		}

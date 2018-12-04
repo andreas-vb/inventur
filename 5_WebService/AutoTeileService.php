@@ -1,5 +1,5 @@
 <?php
-	class TodoService {
+	class AutoTeileService {
 		const DATABASE_ERROR = "DATABASE_ERROR";
 		const NOT_FOUND = "NOT_FOUND";
 		const INVALID_INPUT = "INVALID_INPUT";
@@ -24,9 +24,9 @@
 				$link->close();
 				$count = intval($row[0]);
 				if ($count === 1) {
-					return TodoService::VERSION_OUTDATED;
+					return AutoTeileService::VERSION_OUTDATED;
 				}
-				return TodoService::NOT_FOUND;
+				return AutoTeileService::NOT_FOUND;
 			}
 			ELSE {
 				$link->close();
@@ -45,7 +45,7 @@
 		public function createTodo($todo) {
 			if ($todo->title === "") {
 				$result = new CreateTodoResult();
-				$result->status_code = TodoService::INVALID_INPUT;
+				$result->status_code = AutoTeileService::INVALID_INPUT;
 				$result->validation_messages["title"] = "Der Titel ist eine Pflichtangabe. Bitte geben Sie einen Titel an.";
 				return $result;
 			}
@@ -61,7 +61,7 @@
 			$id = $link->insert_id;
 			$link->close();
 			$result = new CreateTodoResult();
-			$result->status_code = TodoService::OK;
+			$result->status_code = AutoTeileService::OK;
 			$result->id = $id;
 			return $result;
 		}
@@ -77,7 +77,7 @@
 			$todo = $result_set->fetch_object("Todo");
 			$link->close();
 			if ($todo === NULL) {
-				return TodoService::NOT_FOUND;
+				return AutoTeileService::NOT_FOUND;
 			}
 			return $todo;
 		}
@@ -86,7 +86,7 @@
 		public function readTodos(){
 		    $link = new mysqli("localhost", "root", "", "todolist"); 
 			if ($link->connect_error !== NULL) {
-				return TodoService::DATABASE_ERROR;
+				return AutoTeileService::DATABASE_ERROR;
 			}
 			$link->set_charset("utf8");
 			$select_statement =	"SELECT id, created_date, due_date, version, ".
