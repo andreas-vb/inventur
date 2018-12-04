@@ -74,7 +74,7 @@
 								"FROM todo ".
 								"WHERE id = $id";
 			$result_set = $link->query($select_statement);
-			$todo = $result_set->fetch_object("Todo");
+			$todo = $result_set->fetch_object("Autoteil");
 			$link->close();
 			if ($todo === NULL) {
 				return AutoTeileService::NOT_FOUND;
@@ -96,10 +96,10 @@
 			$result_set = $link->query($select_statement);
 			
 			$todos = array();
-			$todo = $result_set->fetch_object("Todo");
+			$todo = $result_set->fetch_object("Autoteil");
 			while($todo !== NULL) {
 				$todos[] = $todo;
-				$todo = $result_set->fetch_object("Todo");
+				$todo = $result_set->fetch_object("Autoteil");
 				}
 			$link->close();
 			return $todos;

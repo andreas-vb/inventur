@@ -1,5 +1,5 @@
 <?php
-	class Todo {
+	class Autoteil {
 		public $id;
 		public $created_date;
 		public $due_date;

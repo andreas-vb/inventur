@@ -2,7 +2,7 @@
 require "vendor\autoload.php";
 require "IgnoreCaseMiddleware.php";
 require "DenyCachingMiddleware.php";
-require "Todo.php";
+require "Autoteil.php";
 require "CreateTodoResult.php";
 require "AutoTeileService.php";
 
@@ -61,7 +61,7 @@ $app->get(
 $app->post(
 	"/todos",
 	function ($request, $response) {
-		$todo = new Todo();
+		$todo = new Autoteil();
 		$todo->title = $request->getParsedBodyParam("title");
 		$todo->due_date = $request->getParsedBodyParam("due_date");
 		$todo->notes = $request->getParsedBodyParam("notes");
@@ -88,7 +88,7 @@ $app->delete (
 $app->put(
 	"/todos/{id}", 
 	function ($request, $response, $id) {
-		$todo = new Todo();
+		$todo = new Autoteil();
 		$todo->id = $id;
 		$todo->title = $request->getParsedBodyParam("title");
 		$todo->due_date = $request->getParsedBodyParam("due_date");
