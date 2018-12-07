@@ -4,6 +4,7 @@ $.widget("todo.todoDetails", {
 			url: todoUrl,
 			dataType: "json",
 			success: function(todo) {
+				this.element.find(".h3_details").text(todo.title);
 				this.element.find(".title").text(todo.title);
 				this.element.find(".author").text(todo.author);
 				this.element.find(".due_date").text(todo.due_date);

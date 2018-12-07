@@ -17,27 +17,36 @@
     <script src="./javascript/autoteil.menubar.js"></script>
     <script src="./javascript/application.js"></script>
   </head>
-  <body>  
+  <body class="test">
+	<h1 class="h1_header">Autoteile NEAP</h1>
+	<h6 class="h6_zusatz">Ihr Spezialist für besondere Ersatzteile</h6>
     <div id="todo_list">
 		<div class="todo template">
-			<span>Wer?</span>
+			<a class="edit_todo" href="#"><img src="./css/images/edit.png" alert="Bearbeiten"></img></a>
+			<a class="delete_todo" href="#"><img src="./css/images/delete.png" alert="Löschen"></img></a>
+			<span>|</span>
+			<span>Author:</span>
 			<span class="author"></span>
 			<span>|</span>
-			<span>Wann?</span>
+			<span>Datum:</span>
 			<span class="due_date"></span>
-			<a class="edit_todo" href="#">Bearbeiten</a>
-			<a class="delete_todo" href="#">Löschen</a>
+			<span>|</span>
+			<span>Titel:</span>
 			<span class="title"></span>
 		</div>
     </div>
 	<div id="todo_details">
-      <span>Wer?</span>
+		<h3 class="h3_details">
+		</h3>
+      <span>Author:</span>
       <span class="author"></span>
-      <span>|</span>
-      <span>Wann?</span>
+	  <p>
+      <span>Datum:</span>
       <span class="due_date"></span>
-      <span class="title"></span>
+	  <p>
+	  <span>Notiz:</span>
       <span class="notes"></span>
+	  <p></p>
     </div>
 	<div id="error_dialog" title="Fehler">
        <div class="message"></div>

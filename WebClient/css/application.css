@@ -1,7 +1,87 @@
 .template, #todo_details {
 	display: none;
+	color: black;
 }
 
 .todo {
 	cursor: pointer;
 }
+
+body { 
+	font-family: Verdana;
+	width: 850px;
+	position: relative;
+	background-color: #D8D8D8;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	}
+	
+#menu_bar {
+text-align: center;
+}
+
+#todo_list {
+text-align: left;
+}
+	
+.h3_details { 
+color: #5882FA;
+text-align: left;
+ }
+  
+ .h1_header { 
+color: #08088A;
+text-align: center;
+ }
+ 
+ .h6_zusatz { 
+color: #8181F7;
+text-align: center;
+ }
+ 
+ .author {
+	 color:#5882FA;
+	 display: inline-block;
+	 width: 90px;
+ }
+ 
+  .due_date {
+	 color:#5882FA;
+	 text-align: center;
+ }
+ 
+   .title {
+	 color:#5882FA;
+	 text-align: center;
+ }
+ 
+   .notes {
+	 color:#5882FA;
+	 text-align: center;
+	 padding-left: 10px;
+ }
+ 
+   .edit_todo {
+	 color:#08088A;
+ } 
+ 
+ 	 a.edit_todo:hover {
+	 color: #3104B4;
+	 }
+ 
+    .delete_todo {
+	 color:#08088A;
+ } 
+ 
+  	 a.delete_todo:hover {
+	 color: #B40404;
+	 }
+ 
+ body > div { 
+	border-width: 1px; 
+	border-style: solid;
+	border-color: grey;
+	margin-bottom: 5px;
+	padding: 5px;
