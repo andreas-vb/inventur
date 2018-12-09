@@ -17,7 +17,7 @@
 			},
 			{
 				xtype: 'datepickerfield',
-				name: 'due_date',
+				name: 'inventur_date',
 				label: 'Fällig',
 				readOnly: true,
 				dateFormat: 'd.m.Y'

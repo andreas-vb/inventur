@@ -18,19 +18,19 @@ $.widget("todo.editDialog", $.ui.dialog, {
 		this.element.find(".validation_message").empty();
 		this.element.find("#title_field").removeClass("ui-state-error");
 		this.element.find("#title_field").val(todo.title);
-		this.element.find("#due_date_field").val(todo.due_date);
+		this.element.find("#inventur_date_field").val(todo.inventur_date);
 		this.element.find("#notes_field").val(todo.notes);
 		this._super();
 	},	
 	
 	_create: function() {
 		var that = this;
-		this.element.find("#due_date_field").datepicker({ dateFormat: "yy-mm-dd" });
+		this.element.find("#inventur_date_field").datepicker({ dateFormat: "yy-mm-dd" });
 		var ok = this.options.buttons[0];
 		ok.click = function() {
 			var todo = {
 				title: that.element.find("#title_field").val(), //keine Parameter-Übergabe bei val-Methode --> Text wird ausgelesen
-				due_date: that.element.find("#due_date_field").val(),
+				inventur_date: that.element.find("#inventur_date_field").val(),
 				notes: that.element.find("#notes_field").val()
 			};
 			$.ajax({

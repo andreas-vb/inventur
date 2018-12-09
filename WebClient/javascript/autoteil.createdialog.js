@@ -20,20 +20,20 @@ $.widget("todo.createDialog", $.ui.dialog, {
 		this.element.find("#author_field").val(todo.author);
 		this.element.find("#title_field").removeClass("ui-state-error");
 		this.element.find("#title_field").val(todo.title);
-		this.element.find("#due_date_field").val(todo.due_date);
+		this.element.find("#inventur_date_field").val(todo.inventur_date);
 		this.element.find("#notes_field").val(todo.notes);
 		this._super();
 	},
 	
 	_create: function() {
 		var that = this;
-		this.element.find("#due_date_field").datepicker({ dateFormat: "yy-mm-dd" });
+		this.element.find("#inventur_date_field").datepicker({ dateFormat: "yy-mm-dd" });
 		var ok = this.options.buttons[0];
 		ok.click = function() {
 			var todo = {
 				author: that.element.find("#author_field").val(),
 				title: that.element.find("#title_field").val(), //keine Parameter-Übergabe bei val-Methode --> Text wird ausgelesen
-				due_date: that.element.find("#due_date_field").val(),
+				inventur_date: that.element.find("#inventur_date_field").val(),
 				notes: that.element.find("#notes_field").val()
 			};
 			$.ajax({
@@ -69,11 +69,11 @@ $.widget("todo.createDialog", $.ui.dialog, {
 					if (response.status == 400) {
 						var validationMessages = $.parseJSON(response.responseText);
 						that.element.find(".validation_message").text(validationMessages.title);
-						that.element.find("#due_date_field").addClass("ui-state-error").focus();
+						that.element.find("#inventur_date_field").addClass("ui-state-error").focus();
 					}
 					else {
 						this.element.find(".validation_message").empty();
-						this.element.find("#due_date_field").removeClass("ui-state-error");
+						this.element.find("#inventur_date_field").removeClass("ui-state-error");
 					}
 					
 				}

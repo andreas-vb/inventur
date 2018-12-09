@@ -1,8 +1,7 @@
 <?php
 	class Autoteil {
 		public $id;
-		public $created_date;
-		public $due_date;
+		public $inventur_date;
 		public $due;
 		public $author;
 		public $title;

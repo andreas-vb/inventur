@@ -5,7 +5,7 @@ Ext.define('Todoliste.model.Todo', {
 			'title',
 			'author',
 			{
-				name: 'due_date',
+				name: 'inventur_date',
 				type: 'date'
 			},
 			'notes',

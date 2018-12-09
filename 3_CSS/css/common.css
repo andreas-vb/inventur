@@ -51,11 +51,11 @@ ul, li {
 	grid-template-columns: 100px 100px auto;
 	grid-gap: 5px;
 }
-#due_date_and_title_labels {
+#inventur_date_and_title_labels {
 	grid-row: 1;
 	grid-column: 1;
 }
-#due_date {
+#inventur_date {
 	grid-row: 1;
 	grid-column: 2;
 }

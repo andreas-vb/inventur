@@ -30,14 +30,14 @@ USE `inventur`;
 
 DROP TABLE IF EXISTS `inventur`;
 CREATE TABLE IF NOT EXISTS `inventur` (
-  `teilenr` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `notes` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `inventur_date` date NOT NULL,
   `farbe` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `bestand` int(11),
   `preis` int(11) NOT NULL,
-  PRIMARY KEY (`teilenr`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `inventur` (
 --
 
 
-INSERT INTO `inventur` (`teilenr`, `name`, `notes`, `inventur_date`, `farbe`, `bestand`, `preis`) VALUES
+INSERT INTO `inventur` (`id`, `title`, `notes`, `inventur_date`, `farbe`, `bestand`, `preis`) VALUES
 (1, 'Airbag', 'neu', '2018-03-10', 'schwarz', '4', '50'),
 (2, 'Lenkrad', 'beheizt, Leder', '2018-03-11', 'braun', '5', '51'),
 (3, 'Bremsscheibe', '2er Set vorne', '2018-03-12', 'keine', '6', '52'),

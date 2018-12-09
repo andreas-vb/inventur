@@ -25,7 +25,7 @@ $.widget("todo.todoList", {
 			var todoElement = this.element.find(".template").clone().removeClass("template");
 			todoElement.find(".title").text(todo.title);
 			todoElement.find(".author").text(todo.author);
-			todoElement.find(".due_date").text(todo.due_date);
+			todoElement.find(".inventur_date").text(todo.inventur_date);
 			todoElement.click(todo.url, function(event) {
 				that._trigger("onTodoClicked", null, event.data);
 			});	

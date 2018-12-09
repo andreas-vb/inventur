@@ -64,7 +64,7 @@ $app->post(
 		$autoteil = new Autoteil();
 		$autoteil->author = $request->getParsedBodyParam("author");
 		$autoteil->title = $request->getParsedBodyParam("title");
-		$autoteil->due_date = $request->getParsedBodyParam("due_date");
+		$autoteil->inventur_date = $request->getParsedBodyParam("inventur_date");
 		$autoteil->notes = $request->getParsedBodyParam("notes");
 		
 		$autoteil_service = new AutoTeileService();
@@ -93,7 +93,7 @@ $app->put(
 		$autoteil->id = $id;
 		$autoteil->title = $request->getParsedBodyParam("title");
 		$autoteil->author = $request->getParsedBodyParam("author");
-		$autoteil->due_date = $request->getParsedBodyParam("due_date");
+		$autoteil->inventur_date = $request->getParsedBodyParam("inventur_date");
 		$autoteil->notes = $request->getParsedBodyParam("notes");
 		$autoteil->version = $request->getHeaderLine("If-Match");
 
@@ -111,9 +111,9 @@ $app->put(
 			return $response->withJson($validation_messages);
 		}	
 
-		if ($autoteil->due_date == "") {
+		if ($autoteil->inventur_date == "") {
 			$validation_messages = array();
-			$validation_messages["due_date"] = "Das Fälligkeitsdatum ist eine Pflichtangabe. Bitte geben Sie einen Datum an.";
+			$validation_messages["inventur_date"] = "Das Fälligkeitsdatum ist eine Pflichtangabe. Bitte geben Sie einen Datum an.";
 			$response = $response->withStatus(400);
 			return $response->withJson($validation_messages);
 		}		
