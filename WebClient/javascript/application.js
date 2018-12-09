@@ -52,7 +52,7 @@ $(function() {
 		}
 	});
 	$("#create_dialog").createDialog({	
-		onCreateTodoClicked: function() {
+		onCreateTodo: function() {
 			$("#todo_list").todoList("reload");
 		}
 	});
