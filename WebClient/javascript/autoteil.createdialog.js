@@ -34,7 +34,7 @@ $.widget("todo.createDialog", $.ui.dialog, {
 				notes: that.element.find("#notes_field").val()
 			};
 			$.ajax({
-				type: "CREATE",
+				type: "POST",
 				url: that._todo.url,
 				data: todo,
 				headers: { "If-Match": that._todo.version },
