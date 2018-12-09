@@ -35,6 +35,9 @@ $(function() {
 		},
 		onEditTodoClicked: function(event, todo) {
 			$("#edit_dialog").editDialog("open", todo);
+		},
+		onCreateTodoClicked: function(event, todo) {
+			$("#create_dialog").createDialog("open", todo);
 		}
 	});
 	$("#todo_details").todoDetails();
