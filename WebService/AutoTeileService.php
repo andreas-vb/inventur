@@ -54,6 +54,7 @@
 			$insert_statement = "INSERT INTO todo SET ".
 								"created_date = CURDATE(), ".
 								"due_date = '$autoteil->due_date', ".
+								"author = '$autoteil->author', ".
 								"title = '$autoteil->title', ".
 								"notes = '$autoteil->notes',".
 								"version = 1";

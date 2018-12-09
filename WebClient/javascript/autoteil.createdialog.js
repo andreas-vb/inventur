@@ -16,6 +16,7 @@ $.widget("todo.createDialog", $.ui.dialog, {
 	open: function(todo) {
 		this._todo = todo;
 		this.element.find(".validation_message").empty();
+		this.element.find("#author_field").val(todo.author);
 		this.element.find("#title_field").removeClass("ui-state-error");
 		this.element.find("#title_field").val(todo.title);
 		this.element.find("#due_date_field").val(todo.due_date);
@@ -29,6 +30,7 @@ $.widget("todo.createDialog", $.ui.dialog, {
 		var ok = this.options.buttons[0];
 		ok.click = function() {
 			var todo = {
+				author: that.element.find("#author_field").val(),
 				title: that.element.find("#title_field").val(), //keine Parameter-Übergabe bei val-Methode --> Text wird ausgelesen
 				due_date: that.element.find("#due_date_field").val(),
 				notes: that.element.find("#notes_field").val()

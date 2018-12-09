@@ -62,6 +62,7 @@ $app->post(
 	"/todos",
 	function ($request, $response) {
 		$autoteil = new Autoteil();
+		$autoteil->author = $request->getParsedBodyParam("author");
 		$autoteil->title = $request->getParsedBodyParam("title");
 		$autoteil->due_date = $request->getParsedBodyParam("due_date");
 		$autoteil->notes = $request->getParsedBodyParam("notes");
@@ -91,6 +92,7 @@ $app->put(
 		$autoteil = new Autoteil();
 		$autoteil->id = $id;
 		$autoteil->title = $request->getParsedBodyParam("title");
+		$autoteil->author = $request->getParsedBodyParam("author");
 		$autoteil->due_date = $request->getParsedBodyParam("due_date");
 		$autoteil->notes = $request->getParsedBodyParam("notes");
 		$autoteil->version = $request->getHeaderLine("If-Match");
