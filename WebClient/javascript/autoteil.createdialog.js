@@ -35,7 +35,7 @@ $.widget("todo.createDialog", $.ui.dialog, {
 			};
 			$.ajax({
 				type: "POST",
-				url: that._todo.url,
+				url: "/inventur/WebService/todos",
 				data: todo,
 				headers: { "If-Match": that._todo.version },
 				success: function() {
