@@ -4,7 +4,7 @@ $.widget("todo.createDialog", $.ui.dialog, {
 		modal: true,
 		buttons: [
 			{
-				text: "OK"
+				text: "Speichern"
 			},			
 			{
 				text: "Abbrechen"
@@ -16,6 +16,7 @@ $.widget("todo.createDialog", $.ui.dialog, {
 	open: function(todo) {
 		this._todo = todo;
 		this.element.find(".validation_message").empty();
+		this.element.find("#author_field").removeClass("ui-state-error");
 		this.element.find("#author_field").val(todo.author);
 		this.element.find("#title_field").removeClass("ui-state-error");
 		this.element.find("#title_field").val(todo.title);
@@ -54,6 +55,27 @@ $.widget("todo.createDialog", $.ui.dialog, {
 						this.element.find(".validation_message").empty();
 						this.element.find("#title_field").removeClass("ui-state-error");
 					}
+					
+					if (response.status == 400) {
+						var validationMessages = $.parseJSON(response.responseText);
+						that.element.find(".validation_message").text(validationMessages.title);
+						that.element.find("#author_field").addClass("ui-state-error").focus();
+					}
+					else {
+						this.element.find(".validation_message").empty();
+						this.element.find("#author_field").removeClass("ui-state-error");
+					}
+					
+					if (response.status == 400) {
+						var validationMessages = $.parseJSON(response.responseText);
+						that.element.find(".validation_message").text(validationMessages.title);
+						that.element.find("#due_date_field").addClass("ui-state-error").focus();
+					}
+					else {
+						this.element.find(".validation_message").empty();
+						this.element.find("#due_date_field").removeClass("ui-state-error");
+					}
+					
 				}
 			})
 

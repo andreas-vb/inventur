@@ -49,6 +49,21 @@
 				$result->validation_messages["title"] = "Der Titel ist eine Pflichtangabe. Bitte geben Sie einen Titel an.";
 				return $result;
 			}
+			
+			if ($autoteil->author === "") {
+				$result = new CreateTodoResult();
+				$result->status_code = AutoTeileService::INVALID_INPUT;
+				$result->validation_messages["title"] = "Der Author ist eine Pflichtangabe. Bitte geben Sie einen Author an.";
+				return $result;
+			}
+			
+			if ($autoteil->due_date === "") {
+				$result = new CreateTodoResult();
+				$result->status_code = AutoTeileService::INVALID_INPUT;
+				$result->validation_messages["title"] = "Das Fälligkeitsdatum ist eine Pflichtangabe. Bitte geben Sie einen Datum an.";
+				return $result;
+			}
+			
 			$link = new mysqli("localhost", "root", "", "todolist"); 
 			$link->set_charset("utf8");
 			$insert_statement = "INSERT INTO todo SET ".

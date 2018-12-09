@@ -102,6 +102,20 @@ $app->put(
 			$validation_messages["title"] = "Der Titel ist eine Pflichtangabe. Bitte geben Sie einen Titel an!";
 			$response = $response->withStatus(400);
 			return $response->withJson($validation_messages);
+		}	
+
+		if ($autoteil->author == "") {
+			$validation_messages = array();
+			$validation_messages["author"] = "Der Author ist eine Pflichtangabe. Bitte geben Sie einen Author an!";
+			$response = $response->withStatus(400);
+			return $response->withJson($validation_messages);
+		}	
+
+		if ($autoteil->due_date == "") {
+			$validation_messages = array();
+			$validation_messages["due_date"] = "Das Fälligkeitsdatum ist eine Pflichtangabe. Bitte geben Sie einen Datum an.";
+			$response = $response->withStatus(400);
+			return $response->withJson($validation_messages);
 		}		
 		
  		$autoteil_service = new AutoTeileService();
