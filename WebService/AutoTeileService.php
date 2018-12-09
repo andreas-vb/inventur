@@ -7,18 +7,20 @@
 		const VERSION_OUTDATED = "VERSION_OUTDATED"; 
 		
 		public function updateAutoteil($autoteil) {
-			$link = new mysqli("localhost", "root", "", "todolist"); 
+			$link = new mysqli("localhost", "root", "", "inventur"); 
 			$link->set_charset("utf8");
-			$update_statement = "UPDATE todo SET ".
-								"title = '$autoteil->title', ".
-								"due_date = '$autoteil->due_date', ".
+			$update_statement = "UPDATE inventur SET ".
+								"name = '$autoteil->name', ".
+								"inventur_date = '$autoteil->inventur_date', ".
 								"notes = '$autoteil->notes', ".
-								"version = version + 1 ".
-								"WHERE id = $autoteil->id AND version = $autoteil->version";
+								"farbe = '$autoteil->farbe', ".
+								"bestand = '$autoteil->bestand', ".
+								"preis = '$autoteil->preis', ".
+								"WHERE teilenr = $autoteil->teilenr";
 			$link->query($update_statement);
 			$affected_rows = $link->affected_rows;
 			if ($affected_rows === 0) {
-				$select_statement = "SELECT COUNT(*) FROM todo WHERE id = $autoteil->id";
+				$select_statement = "SELECT COUNT(*) FROM todo WHERE teilenr = $autoteil->teilenr";
 				$result_set = $link->query($select_statement);
 				$row = $result_set->fetch_row();
 				$link->close();
@@ -34,25 +36,25 @@
 		}
 		
 		
-		public function deleteAutoteil($id) {
-			$link = new mysqli("localhost", "root", "", "todolist"); 
+		public function deleteAutoteil($teilenr) {
+			$link = new mysqli("localhost", "root", "", "inventur"); 
 			$link->set_charset("utf8"); //nicht notwendig, da keine Zeichen in die DB geschrieben werden
-			$delete_statement = "DELETE FROM todo WHERE id = $id";
+			$delete_statement = "DELETE FROM inventur WHERE teilenr = $teilenr";
 			$link->query($delete_statement);
 			$link->close();
 		}
 		
 		public function createTodo($autoteil) {
-			if ($autoteil->title === "") {
+			if ($autoteil->name === "") {
 				$result = new CreateTodoResult();
 				$result->status_code = AutoTeileService::INVALID_INPUT;
 				$result->validation_messages["title"] = "Der Titel ist eine Pflichtangabe. Bitte geben Sie einen Titel an.";
 				return $result;
 			}
-			$link = new mysqli("localhost", "root", "", "todolist"); 
+			$link = new mysqli("localhost", "root", "", "inventur"); 
 			$link->set_charset("utf8");
-			$insert_statement = "INSERT INTO todo SET ".
-								"created_date = CURDATE(), ".
+			$insert_statement = "INSERT INTO inventur SET ".
+								"inventur_date = CURDATE(), ".
 								"due_date = '$autoteil->due_date', ".
 								"title = '$autoteil->title', ".
 								"notes = '$autoteil->notes',".
