@@ -5,5 +5,9 @@ $.widget("todo.menuBar", {
 			that._trigger("onShowTodosClicked");
 			return false;
 		});
+		this.element.find(".create_todo").click(function() {
+			that._trigger("onCreateTodoClicked");
+			return false;
+		});
 	}
 });

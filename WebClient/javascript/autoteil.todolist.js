@@ -37,6 +37,10 @@ $.widget("todo.todoList", {
 				that._trigger("onEditTodoClicked", null, event.data);
 				return false;			//Verhindert, dass übergeordnete Clickhandler ausgeführt werden, die Bearbeitung wird also unterbrochen.
 			});
+			todoElement.find(".create_todo").click(todo, function(event) {
+				that._trigger("onCreateTodoClicked", null, event.data);
+				return false;			//Verhindert, dass übergeordnete Clickhandler ausgeführt werden, die Bearbeitung wird also unterbrochen.
+			});
 			this.element.append(todoElement);
 		}
 	}

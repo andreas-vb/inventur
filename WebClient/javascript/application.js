@@ -48,4 +48,9 @@ $(function() {
 			$("#todo_list").todoList("reload");
 		}
 	});
+	$("#create_dialog").createDialog({	
+		onCreateTodoClicked: function() {
+			$("#todo_list").todoList("reload");
+		}
+	});
 });
