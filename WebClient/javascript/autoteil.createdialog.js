@@ -17,11 +17,11 @@ $.widget("todo.createDialog", $.ui.dialog, {
 		this._todo = todo;
 		this.element.find(".validation_message").empty();
 		this.element.find("#title_field").removeClass("ui-state-error");
-		this.element.find("#title_field").val();
-		this.element.find("#due_date_field").val();
-		this.element.find("#notes_field").val();
+		this.element.find("#title_field").val(todo.title);
+		this.element.find("#due_date_field").val(todo.due_date);
+		this.element.find("#notes_field").val(todo.notes);
 		this._super();
-	},	
+	},
 	
 	_create: function() {
 		var that = this;
