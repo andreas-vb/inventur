@@ -1,4 +1,4 @@
-$.widget("todo.todoList", {  
+$.widget("autoteil.liste", {  
   _create: function() { 
 	$.ajax({
 		url: "/inventur/WebService/todos", 

@@ -1,4 +1,4 @@
-$.widget("autoteil.todoDetails", {
+$.widget("autoteil.details", {
 	load: function(autoteilUrl){
 		$.ajax({
 			url: autoteilUrl,
