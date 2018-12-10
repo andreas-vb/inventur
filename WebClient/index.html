@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8"/>
-    <title>Todo-Liste</title>
+    <title>Autoteile</title>
     <link rel="stylesheet" href="./css/jquery-ui-1.10.4.css" />
     <link rel="stylesheet" href="./css/application.css" />
     <script src="./javascript/jquery-1.10.2.js"></script>
@@ -47,15 +47,27 @@
 	  <p>
 	  <span>Notiz:</span>
       <span class="notes"></span>
+	  <p>
+	  <span>Farbe:</span>
+      <span class="farbe"></span>
+	  <p>
+	  <span>Bestand:</span>
+      <span class="preis"></span>
+	  <p>
+	  <span>Preis:</span>
+      <span class="bestand"></span>
+	  <p>
+	  <span>Gesamtwert:</span>
+      <span class="gesamtwert"></span>
 	  <p></p>
-    </div>
+	</div>
 	<div id="error_dialog" title="Fehler">
        <div class="message"></div>
     </div>
-    <div id="delete_dialog" title="Todo löschen">
-      <div>Möchten Sie das Todo wirklich löschen?</div>
+    <div id="delete_dialog" title="Autoteil löschen">
+      <div>Möchten Sie das Autoteil wirklich löschen?</div>
     </div>
-	<div id="edit_dialog" title="Todo bearbeiten">
+	<div id="edit_dialog" title="Autoteil bearbeiten">
       <form>
         <table>
           <tr>
@@ -74,24 +86,34 @@
             <td><label for="notes_field">Inhalt:</label></td>
             <td colspan="2"><textarea id="notes_field"></textarea></td>
           </tr>
-        </table>
-      </form>
-    </div>
-	<!-- Todo erstelllen -->
-	<div id="create_dialog" title="Todo erstellen">
-      <form>
-        <table>
-          <tr>
-            <td/>
-            <td colspan="2"><span class="validation_message ui-state-error-text"></span></td>
-          </tr>
-          <tr>
 		  <tr>
-		  <td>
-		  <label for="author_field">Author</label>:
-		  </td>
-		  <td><input id="author_field" type="text"/ value="Admin"></td>
-		  </tr>
+            <td><label for="preis_field">Preis:</label></td>
+            <td colspan="2"><textarea id="preis_field"></textarea></td>
+          </tr>
+		  <tr>
+            <td><label for="color_field">Farbe:</label></td>
+            <td colspan="2"><textarea id="color_field"></textarea></td>
+          </tr>
+		  <tr>
+            <td><label for="author_field">Author:</label></td>
+            <td colspan="2"><textarea id="author_field"></textarea></td>
+          </tr>
+		  <tr>
+            <td><label for="bestand_field">Bestand:</label></td>
+            <td colspan="2"><textarea id="bestand_field"></textarea></td>
+          </tr>
+        </table>
+      </form>
+    </div>
+	<!-- Autoteil erstelllen -->
+	<div id="create_dialog" title="Autoteil erstellen">
+      <form>
+        <table>
+          <tr>
+            <td/>
+            <td colspan="2"><span class="validation_message ui-state-error-text"></span></td>
+          </tr>
+          <tr>
             <td>
               <label for="inventur_date_field">Fällig</label>,
               <label for="title_field">Titel</label>:
@@ -103,13 +125,29 @@
             <td><label for="notes_field">Inhalt:</label></td>
             <td colspan="2"><textarea id="notes_field"></textarea></td>
           </tr>
+		  <tr>
+            <td><label for="preis_field">Preis:</label></td>
+            <td colspan="2"><textarea id="preis_field"></textarea></td>
+          </tr>
+		  <tr>
+            <td><label for="color_field">Farbe:</label></td>
+            <td colspan="2"><textarea id="color_field"></textarea></td>
+          </tr>
+		  <tr>
+            <td><label for="author_field">Author:</label></td>
+            <td colspan="2"><textarea id="author_field"></textarea></td>
+          </tr>
+		  <tr>
+            <td><label for="bestand_field">Bestand:</label></td>
+            <td colspan="2"><textarea id="bestand_field"></textarea></td>
+          </tr>
         </table>
       </form>
     </div>
-	<!-- Todo erstelllen Ende -->
+	<!-- Autoteil erstellen Ende -->
 	    <div id="menu_bar">
-      <a class="show_todos" href="#">Alle Todos</a>
-      <a class="create_todo" href="#">Neues Todo</a>
+      <a class="show_todos" href="#">Alle Autoteile</a>
+      <a class="create_todo" href="#">Neues Autoteil</a>
     </div>
   </body>
 </html>

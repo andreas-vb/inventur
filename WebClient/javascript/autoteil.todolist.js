@@ -27,18 +27,18 @@ $.widget("todo.todoList", {
 			todoElement.find(".author").text(todo.author);
 			todoElement.find(".inventur_date").text(todo.inventur_date);
 			todoElement.click(todo.url, function(event) {
-				that._trigger("onTodoClicked", null, event.data);
+				that._trigger("onAutoteilClicked", null, event.data);
 			});	
 			todoElement.find(".delete_todo").click(todo.url, function(event) {
-				that._trigger("onDeleteTodoClicked", null, event.data);
+				that._trigger("onDeleteAutoteilClicked", null, event.data);
 				return false;			//Verhindert, dass übergeordnete Clickhandler ausgeführt werden, die Bearbeitung wird also unterbrochen.
 			});
 			todoElement.find(".edit_todo").click(todo, function(event) {
-				that._trigger("onEditTodoClicked", null, event.data);
+				that._trigger("onEditAutoteilClicked", null, event.data);
 				return false;			//Verhindert, dass übergeordnete Clickhandler ausgeführt werden, die Bearbeitung wird also unterbrochen.
 			});
 			todoElement.find(".create_todo").click(todo, function(event) {
-				that._trigger("onCreateTodoClicked", null, event.data);
+				that._trigger("onCreateAutoteilClicked", null, event.data);
 				return false;			//Verhindert, dass übergeordnete Clickhandler ausgeführt werden, die Bearbeitung wird also unterbrochen.
 			});
 			this.element.append(todoElement);

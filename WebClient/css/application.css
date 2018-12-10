@@ -57,6 +57,24 @@ text-align: center;
 	 text-align: center;
  }
  
+   .gesamtwert {
+	 color:#115a0d;
+	 text-align: center;
+ }
+ 
+   .preis {
+	 color:#5882FA;
+	 text-align: center;
+ }
+    .bestand {
+	 color:#5882FA;
+	 text-align: center;
+ }
+    .farbe {
+	 color:#5882FA;
+	 text-align: center;
+ }
+ 
    .notes {
 	 color:#5882FA;
 	 text-align: center;

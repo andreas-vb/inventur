@@ -1,4 +1,4 @@
-$.widget("todo.createDialog", $.ui.dialog, {
+$.widget("autoteil.createDialog", $.ui.dialog, {
 	options: {
 		autoOpen: false, 
 		modal: true,
@@ -13,15 +13,18 @@ $.widget("todo.createDialog", $.ui.dialog, {
 		width: 550
 	},
 	
-	open: function(todo) {
-		this._todo = todo;
+	open: function(autoteil) {
+		this._autoteil = autoteil;
 		this.element.find(".validation_message").empty();
 		this.element.find("#author_field").removeClass("ui-state-error");
-		this.element.find("#author_field").val(todo.author);
+		this.element.find("#author_field").val(autoteil.author);
 		this.element.find("#title_field").removeClass("ui-state-error");
-		this.element.find("#title_field").val(todo.title);
-		this.element.find("#inventur_date_field").val(todo.inventur_date);
-		this.element.find("#notes_field").val(todo.notes);
+		this.element.find("#title_field").val(autoteil.title);
+		this.element.find("#inventur_date_field").val(autoteil.inventur_date);
+		this.element.find("#notes_field").val(autoteil.notes);
+		this.element.find("#preis_field").val(autoteil.notes);
+		this.element.find("#bestand_field").val(autoteil.notes);
+		this.element.find("#farbe_field").val(autoteil.notes);
 		this._super();
 	},
 	
@@ -30,17 +33,28 @@ $.widget("todo.createDialog", $.ui.dialog, {
 		this.element.find("#inventur_date_field").datepicker({ dateFormat: "yy-mm-dd" });
 		var ok = this.options.buttons[0];
 		ok.click = function() {
-			var todo = {
+			that._autoteil = {
 				author: that.element.find("#author_field").val(),
 				title: that.element.find("#title_field").val(), //keine Parameter-Übergabe bei val-Methode --> Text wird ausgelesen
 				inventur_date: that.element.find("#inventur_date_field").val(),
-				notes: that.element.find("#notes_field").val()
+				notes: that.element.find("#notes_field").val(),
+				preis: that.element.find("#preis_field").val(),
+				bestand: that.element.find("#bestand_field").val(),
+				farbe: that.element.find("#color_field").val()
 			};
+			
+			console.log("create called"+that._autoteil);
+			var output = "";
+			for (property in that._autoteil) {
+				output += property + ': ' + that._autoteil[property]+'; ';
+			}
+			console.log(output);
+			console.log(that._autoteil.version);
 			$.ajax({
 				type: "POST",
 				url: "/inventur/WebService/todos",
-				data: todo,
-				headers: { "If-Match": that._todo.version },
+				data: that._autoteil,
+				headers: { "If-Match": that._autoteil.version },
 				success: function() {
 					that.close();
 					that._trigger("onTodoCreated");

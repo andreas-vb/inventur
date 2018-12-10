@@ -6,6 +6,7 @@ $(function() {
 		$("#error_dialog").errorDialog("open",response.statusText);
 		$("#todo_details").hide();
 		$("#todo_list").show();
+		$("#menu_bar").show();
 		if (response.status == 404) {
 			$("#todo_list").todoList("reload");
 		}
@@ -18,28 +19,28 @@ $(function() {
 	});
 	$("#error_dialog").errorDialog();
 	$("#menu_bar").menuBar({
-		onShowTodosClicked: function(){
+		onShowAutoteilClicked: function(){
 			$("#todo_details").hide();
 			$("#todo_list").show();
 			$("#todo_list").todoList("reload");
 		},		
-		onCreateTodoClicked: function(event, todo) {
+		onCreateAutoteilClicked: function(event, todo) {
 			$("#create_dialog").createDialog("open", todo);
 		}
 	});
 	$("#todo_list").todoList({
-		onTodoClicked: function(event, todoUrl) {
+		onAutoteilClicked: function(event, todoUrl) {
 			$("#todo_list").hide();
 			$("#todo_details").show();
 			$("#todo_details").todoDetails("load", todoUrl);
 		},
-		onDeleteTodoClicked: function(event, todoUrl) {
+		onDeleteAutoteilClicked: function(event, todoUrl) {
 			$("#delete_dialog").deleteDialog("open", todoUrl);
 		},
-		onEditTodoClicked: function(event, todo) {
+		onEditAutoteilClicked: function(event, todo) {
 			$("#edit_dialog").editDialog("open", todo);
 		},		
-		onCreateTodoClicked: function(event, todo) {
+		onCreateAutoteilClicked: function(event, todo) {
 			$("#create_dialog").createDialog("open", todo);
 		}
 	});

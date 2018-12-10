@@ -3,7 +3,7 @@ require "vendor\autoload.php";
 require "IgnoreCaseMiddleware.php";
 require "DenyCachingMiddleware.php";
 require "Autoteil.php";
-require "CreateTodoResult.php";
+require "CreateAutoteilResult.php";
 require "AutoTeileService.php";
 
 $config = [
@@ -66,9 +66,12 @@ $app->post(
 		$autoteil->title = $request->getParsedBodyParam("title");
 		$autoteil->inventur_date = $request->getParsedBodyParam("inventur_date");
 		$autoteil->notes = $request->getParsedBodyParam("notes");
+		$autoteil->farbe = $request->getParsedBodyParam("farbe");
+		$autoteil->bestand = $request->getParsedBodyParam("bestand");
+		$autoteil->preis = $request->getParsedBodyParam("preis");
 		
 		$autoteil_service = new AutoTeileService();
-		$result = $autoteil_service->createTodo($autoteil); 
+		$result = $autoteil_service->createAutoteil($autoteil); 
 		
 		if ($result->status_code === AutoTeileService::INVALID_INPUT) {
 					$response = $response->withstatus(400);
@@ -93,6 +96,9 @@ $app->put(
 		$autoteil->id = $id;
 		$autoteil->title = $request->getParsedBodyParam("title");
 		$autoteil->author = $request->getParsedBodyParam("author");
+		$autoteil->farbe = $request->getParsedBodyParam("farbe");
+		$autoteil->bestand = $request->getParsedBodyParam("bestand");
+		$autoteil->preis = $request->getParsedBodyParam("preis");
 		$autoteil->inventur_date = $request->getParsedBodyParam("inventur_date");
 		$autoteil->notes = $request->getParsedBodyParam("notes");
 		$autoteil->version = $request->getHeaderLine("If-Match");
