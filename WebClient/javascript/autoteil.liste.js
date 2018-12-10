@@ -29,15 +29,15 @@ $.widget("autoteil.liste", {
 			todoElement.click(todo.url, function(event) {
 				that._trigger("onAutoteilClicked", null, event.data);
 			});	
-			todoElement.find(".delete_todo").click(todo.url, function(event) {
+			todoElement.find(".delete_autoteil").click(todo.url, function(event) {
 				that._trigger("onDeleteAutoteilClicked", null, event.data);
 				return false;			//Verhindert, dass übergeordnete Clickhandler ausgeführt werden, die Bearbeitung wird also unterbrochen.
 			});
-			todoElement.find(".edit_todo").click(todo, function(event) {
+			todoElement.find(".edit_autoteil").click(todo, function(event) {
 				that._trigger("onEditAutoteilClicked", null, event.data);
 				return false;			//Verhindert, dass übergeordnete Clickhandler ausgeführt werden, die Bearbeitung wird also unterbrochen.
 			});
-			todoElement.find(".create_todo").click(todo, function(event) {
+			todoElement.find(".create_autoteil").click(todo, function(event) {
 				that._trigger("onCreateAutoteilClicked", null, event.data);
 				return false;			//Verhindert, dass übergeordnete Clickhandler ausgeführt werden, die Bearbeitung wird also unterbrochen.
 			});

@@ -1,4 +1,4 @@
-.template, #todo_details {
+.template, #autoteil_details {
 	display: none;
 	color: black;
 }
@@ -22,7 +22,7 @@ body {
 text-align: center;
 }
 
-#todo_list {
+#autoteil_list {
 text-align: left;
 }
 	
@@ -81,19 +81,19 @@ text-align: center;
 	 padding-left: 10px;
  }
  
-   .edit_todo {
+   .edit_autoteil {
 	 color:#08088A;
  } 
  
- 	 a.edit_todo:hover {
+ 	 a.edit_autoteil:hover {
 	 color: #3104B4;
 	 }
  
-    .delete_todo {
+    .delete_autoteil {
 	 color:#08088A;
  } 
  
-  	 a.delete_todo:hover {
+  	 a.delete_autoteil:hover {
 	 color: #B40404;
 	 }
  

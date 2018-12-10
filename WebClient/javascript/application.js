@@ -4,11 +4,11 @@ $(function() {
 			return;
 		}
 		$("#error_dialog").errorDialog("open",response.statusText);
-		$("#todo_details").hide();
-		$("#todo_list").show();
+		$("#autoteil_details").hide();
+		$("#autoteil_list").show();
 		$("#menu_bar").show();
 		if (response.status == 404) {
-			$("#todo_list").liste("reload");
+			$("#autoteil_list").liste("reload");
 		}
 	});
 	$(document).ajaxStart(function() {
@@ -20,19 +20,19 @@ $(function() {
 	$("#error_dialog").errorDialog();
 	$("#menu_bar").menuBar({
 		onShowAutoteilClicked: function(){
-			$("#todo_details").hide();
-			$("#todo_list").show();
-			$("#todo_list").liste("reload");
+			$("#autoteil_details").hide();
+			$("#autoteil_list").show();
+			$("#autoteil_list").liste("reload");
 		},		
 		onCreateAutoteilClicked: function(event, todo) {
 			$("#create_dialog").createDialog("open", todo);
 		}
 	});
-	$("#todo_list").liste({
+	$("#autoteil_list").liste({
 		onAutoteilClicked: function(event, todoUrl) {
-			$("#todo_list").hide();
-			$("#todo_details").show();
-			$("#todo_details").details("load", todoUrl);
+			$("#autoteil_list").hide();
+			$("#autoteil_details").show();
+			$("#autoteil_details").details("load", todoUrl);
 		},
 		onDeleteAutoteilClicked: function(event, todoUrl) {
 			$("#delete_dialog").deleteDialog("open", todoUrl);
@@ -44,20 +44,20 @@ $(function() {
 			$("#create_dialog").createDialog("open", todo);
 		}
 	});
-	$("#todo_details").details();
+	$("#autoteil_details").details();
 	$("#delete_dialog").deleteDialog({
 		onTodoDeleted: function() {
-			$("#todo_list").liste("reload");
+			$("#autoteil_list").liste("reload");
 		}
 	});
 	$("#edit_dialog").editDialog({	
 		onTodoEdited: function() {
-			$("#todo_list").liste("reload");
+			$("#autoteil_list").liste("reload");
 		}
 	});
 	$("#create_dialog").createDialog({	
 		onTodoCreated: function() {
-			$("#todo_list").liste("reload");
+			$("#autoteil_list").liste("reload");
 		}
 	});
 });
