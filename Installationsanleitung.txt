@@ -1,0 +1,7 @@
+- Installationsvoraussetzung: Windows-System mit installiertem XAMPP unter c:\xampp
+
+1. Entpacken des Zip-Files in c:\xampp\htdocs\inventur
+2. Starten des Apache- und MySQL-Servers in XAMPP
+3. Import der Datenbank über SQL-Script "inventurdaten.sql" in \inventur\webservice\db\
+4. Ausführen der Webanwendung über localhost/inventur/WebClient
+5. Ausführen der mobilen Anwendung über localhost/inventur/7_MobileClient
