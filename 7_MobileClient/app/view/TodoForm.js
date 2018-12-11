@@ -27,6 +27,24 @@
 				name: 'notes',
 				label: 'Notizen',
 				readOnly: true
+			},
+			{
+				xtype: 'textfield',
+				name: 'farbe',
+				label: 'Farbe',
+				readOnly: true
+			},
+			{
+				xtype: 'numberfield',
+				name: 'bestand',
+				label: 'Bestand',
+				readOnly: true
+			},
+			{
+				xtype: 'numberfield',
+				name: 'preis',
+				label: 'Preis',
+				readOnly: true
 			}
 		]
 	}

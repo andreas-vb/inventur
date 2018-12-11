@@ -9,7 +9,10 @@ Ext.define('Todoliste.model.Todo', {
 				type: 'date'
 			},
 			'notes',
-			'version'
+			'version',
+			'farbe',
+			'bestand',
+			'preis',
 		],
 		idProperty: 'url'
 	
