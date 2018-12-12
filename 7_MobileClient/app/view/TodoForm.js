@@ -18,7 +18,7 @@
 			{
 				xtype: 'datepickerfield',
 				name: 'inventur_date',
-				label: 'Fällig',
+				label: 'Datum',
 				readOnly: true,
 				dateFormat: 'd.m.Y'
 			},
