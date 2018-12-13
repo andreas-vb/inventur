@@ -20,13 +20,13 @@ $app->add(new IgnoreCaseMiddleware());
 $app->add(new DenyCachingMiddleware());
 
 $app->get(
-  "/todos",
+  "/autoteile",
   function ($request, $response) {
 	$autoteil_service = new AutoTeileService();
 	$autoteils = $autoteil_service->readAutoteile();
 	
 	foreach ($autoteils as $autoteil) {
-		$autoteil->url = "/inventur/WebService/todos/$autoteil->id";
+		$autoteil->url = "/inventur/WebService/autoteile/$autoteil->id";
 		unset($autoteil->id);
 	}
 	
@@ -41,7 +41,7 @@ $app->get(
   });
   
 $app->get(
-	"/todos/{id}",
+	"/autoteile/{id}",
 	function ($request, $response, $id) {
 		$autoteil_service = new AutoTeileService();
 		$autoteil = $autoteil_service->readAutoteil($id);
@@ -59,7 +59,7 @@ $app->get(
 	});
 
 $app->post(
-	"/todos",
+	"/autoteile",
 	function ($request, $response) {
 		$autoteil = new Autoteil();
 		$autoteil->author = $request->getParsedBodyParam("author");
@@ -78,19 +78,19 @@ $app->post(
 					return $response->withJson($result->validation_messages);
 				}
 		$response = $response->withStatus(201);
-		$response = $response->withHeader("Location", "/inventur/WebService/todos/$result->id");
+		$response = $response->withHeader("Location", "/inventur/WebService/autoteile/$result->id");
 		return $response;
 	});	
 	
 $app->delete (
-	"/todos/{id}", 
+	"/autoteile/{id}", 
 	function ($request, $response, $id) {
 		$autoteil_service = new AutoTeileService();
 		$autoteil_service->deleteAutoteil($id);
 	});
 	
 $app->put(
-	"/todos/{id}", 
+	"/autoteile/{id}", 
 	function ($request, $response, $id) {
 		$autoteil = new Autoteil();
 		$autoteil->id = $id;

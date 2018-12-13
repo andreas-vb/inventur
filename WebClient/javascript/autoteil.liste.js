@@ -1,7 +1,7 @@
 $.widget("autoteil.liste", {  
   _create: function() { 
 	$.ajax({
-		url: "/inventur/WebService/todos", 
+		url: "/inventur/WebService/autoteile", 
 		dataType: "json",
 		success: this._appendTodos,
 		context: this
@@ -11,7 +11,7 @@ $.widget("autoteil.liste", {
   reload: function() {
 	this.element.find(".todo:not(.template)").remove();
 	$.ajax({
-		url: "/inventur/WebService/todos", 
+		url: "/inventur/WebService/autoteile", 
 		dataType: "json",
 		success: this._appendTodos,
 		context: this

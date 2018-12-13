@@ -57,7 +57,7 @@ $.widget("autoteil.createDialog", $.ui.dialog, {
 			console.log(that._autoteil.version);
 			$.ajax({
 				type: "POST",
-				url: "/inventur/WebService/todos",
+				url: "/inventur/WebService/autoteile",
 				data: that._autoteil,
 				headers: { "If-Match": that._autoteil.version },
 				success: function() {

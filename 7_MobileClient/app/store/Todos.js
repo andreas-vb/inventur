@@ -6,7 +6,7 @@ Ext.define('Todoliste.store.Todos', {
 	config: {
 		proxy: {
 			type: 'rest',
-			url: '/inventur/WebService/todos',
+			url: '/inventur/WebService/autoteile',
 			reader: {
 				type:'json'
 			},
