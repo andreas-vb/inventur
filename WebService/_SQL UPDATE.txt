@@ -1,5 +1,0 @@
-"UPDATE todo SET ".
-"title = '$autoteil->title', ".
-"inventur_date = '$autoteil->inventur_date', ".
-"notes = '$autoteil->notes' ".
-"WHERE id = $autoteil->id"

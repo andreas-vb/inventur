@@ -1,5 +1,0 @@
-"INSERT INTO todo SET ".
-"created_date = CURDATE(), ".
-"inventur_date = '$autoteil->inventur_date', ".
-"title = '$autoteil->title', ".
-"notes = '$autoteil->notes'";

@@ -1,4 +1,0 @@
-"SELECT id, created_date, inventur_date, ".
-"inventur_date <= CURDATE() as due, author, title, notes ".
-"FROM todo ".
-"ORDER BY inventur_date ASC";
