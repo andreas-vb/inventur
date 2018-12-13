@@ -23,7 +23,6 @@ Ext.define('AutoteileListe.plugin.PullRefresh', {
 
     store.insert(0, toInsert);
     
-    /* Patch: gelöschte Todos aus der Liste entfernen */
     var toRemove = [],
       newRecordsIds = Ext.Array.map(newRecords, function(record) { return record.getId(); });
 
