@@ -1,8 +1,8 @@
-Ext.define('Todoliste.controller.AppController', {
+Ext.define('AutoteileListe.controller.AppController', {
 	extend: 'Ext.app.Controller',
 	config: {
 		control: {
-			todolist: {
+			AutoteileListe: {
 				itemtap: 'showTodoDetails'
 			},
 			'#deletebutton': {

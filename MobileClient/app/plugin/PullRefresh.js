@@ -1,4 +1,4 @@
-Ext.define('Todoliste.plugin.PullRefresh', {
+Ext.define('AutoteileListe.plugin.PullRefresh', {
   override: 'Ext.plugin.PullRefresh',
   onLatestFetched: function(operation) {
     var store = this.getList().getStore(),

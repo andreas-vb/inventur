@@ -11,17 +11,17 @@
 */
 
 Ext.application({
-    name: 'Todoliste',
+    name: 'AutoteileListe',
 
     requires: [
         'Ext.MessageBox',
-		'Todoliste.plugin.PullRefresh',
-		'Todoliste.data.proxy.Rest'
+		'AutoteileListe.plugin.PullRefresh',
+		'AutoteileListe.data.proxy.Rest'
     ],
 
     views: [
         'Main',
-		'TodoList',
+		'AutoteileListe',
 		'TodoForm',
 		'MessageBox'
     ],
@@ -61,7 +61,7 @@ Ext.application({
         Ext.fly('appLoadingIndicator').destroy();
 
         // Initialize the main view
-        Ext.Viewport.add(Ext.create('Todoliste.view.Main'));
+        Ext.Viewport.add(Ext.create('AutoteileListe.view.Main'));
     },
 
     onUpdated: function() {

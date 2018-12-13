@@ -1,4 +1,4 @@
-Ext.define('Todoliste.store.Todos', {
+Ext.define('AutoteileListe.store.Todos', {
 	extend: 'Ext.data.Store',
 	requires: [
 		'Ext.data.proxy.Rest'
@@ -16,7 +16,7 @@ Ext.define('Todoliste.store.Todos', {
 				}
 			}
 		},
-		model: 'Todoliste.model.Todo',
+		model: 'AutoteileListe.model.Todo',
 		autoLoad: true
 	}
 });

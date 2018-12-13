@@ -1,4 +1,4 @@
-﻿Ext.define("Todoliste.view.TodoForm", {
+﻿Ext.define("AutoteileListe.view.TodoForm", {
 	extend: 'Ext.form.Panel',
 	xtype: 'todoform',
 	config: {

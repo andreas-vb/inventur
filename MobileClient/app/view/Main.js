@@ -1,9 +1,9 @@
-Ext.define('Todoliste.view.Main', {
+Ext.define('AutoteileListe.view.Main', {
 	extend: 'Ext.navigation.View',
 	xtype: 'main',
 	config: {
 		items: {
-			xtype: 'todolist'
+			xtype: 'AutoteileListe'
 		},
 		defaultBackButtonText: 'Zurück',
 		navigationBar: {

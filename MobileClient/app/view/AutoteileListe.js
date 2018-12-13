@@ -1,6 +1,6 @@
-﻿Ext.define("Todoliste.view.TodoList", {
+﻿Ext.define("AutoteileListe.view.AutoteileListe", {
 	extend: 'Ext.dataview.List',
-	xtype: 'todolist',
+	xtype: 'AutoteileListe',
 	config: {
 		store: 'Todos',
 		itemTpl: '<div>{title}</div>',
