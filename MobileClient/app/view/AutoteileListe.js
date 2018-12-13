@@ -2,9 +2,9 @@
 	extend: 'Ext.dataview.List',
 	xtype: 'AutoteileListe',
 	config: {
-		store: 'Todos',
+		store: 'Autoteile',
 		itemTpl: '<div>{title}</div>',
-		emptyText: 'keine Todos',
+		emptyText: 'keine Autoteile',
 		plugins: [
 			{
 				type: 'pullrefresh',

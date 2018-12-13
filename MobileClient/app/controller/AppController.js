@@ -3,7 +3,7 @@ Ext.define('AutoteileListe.controller.AppController', {
 	config: {
 		control: {
 			AutoteileListe: {
-				itemtap: 'showTodoDetails'
+				itemtap: 'showAutoteileDetails'
 			},
 			'#deletebutton': {
 				tap: 'showConfirmDeleteDialog'
@@ -15,30 +15,30 @@ Ext.define('AutoteileListe.controller.AppController', {
 		},
 		refs: {
 			main: 'main',
-			todoForm: 'todoform',
+			autoteileForm: 'autoteileform',
 			deleteButton: '#deletebutton'
 		}
 	},
 	
-	showTodoDetails: function(list, index, target, record) {
+	showAutoteileDetails: function(list, index, target, record) {
 		var main = this.getMain();
-		var todoForm = Ext.widget('todoform'); // Equivalent to Ext.create('widget.panel')
-		todoForm.setRecord(record);
-		main.push(todoForm);
+		var autoteileForm = Ext.widget('autoteileform'); // Equivalent to Ext.create('widget.panel')
+		autoteileForm.setRecord(record);
+		main.push(autoteileForm);
 	},
 	
 	showConfirmDeleteDialog: function() {
-		Ext.Msg.confirm('Löschen', 'Wirklich löschen?', this.deleteTodo, this);
+		Ext.Msg.confirm('Löschen', 'Wirklich löschen?', this.deleteAutoteil, this);
 	},
 	
-	deleteTodo: function(buttonId) {
+	deleteAutoteil: function(buttonId) {
 		if (buttonId != 'yes') {
 			return;
 		}
-		var todo = this.getTodoForm().getRecord();
-		var todos = Ext.getStore('Todos');
-		todos.remove(todo);
-		todos.sync({
+		var autoteil = this.getAutoteileForm().getRecord();
+		var autoteile = Ext.getStore('Autoteile');
+		autoteile.remove(autoteil);
+		autoteile.sync({
 			callback: function() {
 				this.getMain().pop();
 			},

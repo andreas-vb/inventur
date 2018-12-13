@@ -1,6 +1,6 @@
-﻿Ext.define("AutoteileListe.view.TodoForm", {
+﻿Ext.define("AutoteileListe.view.AutoteileForm", {
 	extend: 'Ext.form.Panel',
-	xtype: 'todoform',
+	xtype: 'autoteileform',
 	config: {
 		items:  [
 			{

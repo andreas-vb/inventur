@@ -1,4 +1,4 @@
-Ext.define('AutoteileListe.store.Todos', {
+Ext.define('AutoteileListe.store.Autoteile', {
 	extend: 'Ext.data.Store',
 	requires: [
 		'Ext.data.proxy.Rest'

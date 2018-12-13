@@ -22,7 +22,7 @@ Ext.application({
     views: [
         'Main',
 		'AutoteileListe',
-		'TodoForm',
+		'AutoteileForm',
 		'MessageBox'
     ],
 	
@@ -35,7 +35,7 @@ Ext.application({
 	],
 	
 	stores: [
-		'Todos'
+		'Autoteile'
 	],
 
     icon: {
