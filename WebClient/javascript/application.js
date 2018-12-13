@@ -46,17 +46,17 @@ $(function() {
 	});
 	$("#autoteil_details").details();
 	$("#delete_dialog").deleteDialog({
-		onTodoDeleted: function() {
+		onAutoteilDeleted: function() {
 			$("#autoteil_list").liste("reload");
 		}
 	});
 	$("#edit_dialog").editDialog({	
-		onTodoEdited: function() {
+		onAutoteilEdited: function() {
 			$("#autoteil_list").liste("reload");
 		}
 	});
 	$("#create_dialog").createDialog({	
-		onTodoCreated: function() {
+		onAutoteilCreated: function() {
 			$("#autoteil_list").liste("reload");
 		}
 	});

@@ -1,4 +1,4 @@
-$.widget("todo.menuBar", { 
+$.widget("autoteil.menuBar", { 
 	_create: function() {
 		var that = this;
 		this.element.find(".show_autoteile").click(function() {

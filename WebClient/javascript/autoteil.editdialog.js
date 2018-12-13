@@ -66,7 +66,7 @@ $.widget("autoteil.editDialog", $.ui.dialog, {
 				headers: { "If-Match": that._autoteil.version },
 				success: function() {
 					that.close();
-					that._trigger("onTodoEdited");
+					that._trigger("onAutoteilEdited");
 				},
 				error: function(response) {
 					if (response.status == 400) {

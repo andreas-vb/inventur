@@ -62,7 +62,7 @@ $.widget("autoteil.createDialog", $.ui.dialog, {
 				headers: { "If-Match": that._autoteil.version },
 				success: function() {
 					that.close();
-					that._trigger("onTodoCreated");
+					that._trigger("onAutoteilCreated");
 				},
 				error: function(response) {
 					if (response.status == 400) {

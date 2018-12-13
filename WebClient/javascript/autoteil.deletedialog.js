@@ -1,4 +1,4 @@
-$.widget("todo.deleteDialog", $.ui.dialog, {
+$.widget("autoteil.deleteDialog", $.ui.dialog, {
 	options: {
 		autoOpen: false, 
 		modal: true,
@@ -26,7 +26,7 @@ $.widget("todo.deleteDialog", $.ui.dialog, {
 				type: "DELETE",
 				url: that._todoUrl,
 				success: function() {
-					that._trigger("onTodoDeleted");
+					that._trigger("onAutoteilDeleted");
 				}
 			});
 			

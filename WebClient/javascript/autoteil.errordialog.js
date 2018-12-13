@@ -1,4 +1,4 @@
-$.widget("todo.errorDialog", $.ui.dialog, {
+$.widget("autoteil.errorDialog", $.ui.dialog, {
 	options: {
 		autoOpen: false, 
 		modal: true,
