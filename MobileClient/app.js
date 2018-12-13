@@ -31,7 +31,7 @@ Ext.application({
 	],
 	
 	models: [
-		'Todo'
+		'Autoteil'
 	],
 	
 	stores: [

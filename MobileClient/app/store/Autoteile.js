@@ -16,7 +16,7 @@ Ext.define('AutoteileListe.store.Autoteile', {
 				}
 			}
 		},
-		model: 'AutoteileListe.model.Todo',
+		model: 'AutoteileListe.model.Autoteil',
 		autoLoad: true
 	}
 });

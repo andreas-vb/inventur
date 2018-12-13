@@ -1,4 +1,4 @@
-Ext.define('AutoteileListe.model.Todo', {
+Ext.define('AutoteileListe.model.Autoteil', {
 	extend: 'Ext.data.Model',
 	config: {
 		fields: [
