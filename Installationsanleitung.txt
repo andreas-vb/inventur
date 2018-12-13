@@ -4,7 +4,7 @@
 2. Starten des Apache- und MySQL-Servers in XAMPP
 3. Import der Datenbank über SQL-Script "inventurdaten.sql" in \inventur\webservice\db\
 4. Ausführen der Webanwendung über localhost/inventur/WebClient
-5. Ausführen der mobilen Anwendung über localhost/inventur/7_MobileClient
+5. Ausführen der mobilen Anwendung über localhost/inventur/MobileClient
 6. Zugangsdaten: 
 Nadine:passwort1
 Emil:passwort1
