@@ -51,21 +51,42 @@
 			if ($autoteil->title === "") {
 				$result = new CreateAutoteilResult();
 				$result->status_code = AutoTeileService::INVALID_INPUT;
-				$result->validation_messages["title"] = "Der Titel ist eine Pflichtangabe. Bitte geben Sie einen Titel an.";
-				return $result;
-			}
-			
-			if ($autoteil->author === "") {
-				$result = new CreateAutoteilResult();
-				$result->status_code = AutoTeileService::INVALID_INPUT;
-				$result->validation_messages["title"] = "Der Author ist eine Pflichtangabe. Bitte geben Sie einen Author an.";
+				$result->validation_messages["title"] = "Der Titel ist eine Pflichtangabe. Bitte geben Sie einen Titel an!";
 				return $result;
 			}
 			
 			if ($autoteil->inventur_date === "") {
 				$result = new CreateAutoteilResult();
 				$result->status_code = AutoTeileService::INVALID_INPUT;
-				$result->validation_messages["title"] = "Das Fälligkeitsdatum ist eine Pflichtangabe. Bitte geben Sie einen Datum an.";
+				$result->validation_messages["date"] = "Das Fälligkeitsdatum ist eine Pflichtangabe. Bitte geben Sie einen Datum an!";
+				return $result;
+			}
+			
+			if ($autoteil->notes === "") {
+				$result = new CreateAutoteilResult();
+				$result->status_code = AutoTeileService::INVALID_INPUT;
+				$result->validation_messages["notes"] = "Das Notizfeld ist eine Pflichtangabe. Bitte geben Sie eine Notiz ein!";
+				return $result;
+			}
+			
+			if ($autoteil->preis === "") {
+				$result = new CreateAutoteilResult();
+				$result->status_code = AutoTeileService::INVALID_INPUT;
+				$result->validation_messages["preis"] = "Die Preisangabe ist eine Pflichtangabe. Bitte geben Sie einen Preis in Zahlen ein!";
+				return $result;
+			}
+			
+			if ($autoteil->author === "") {
+				$result = new CreateAutoteilResult();
+				$result->status_code = AutoTeileService::INVALID_INPUT;
+				$result->validation_messages["author"] = "Der Author ist eine Pflichtangabe. Bitte geben Sie einen Author an!";
+				return $result;
+			}
+			
+			if ($autoteil->bestand === "") {
+				$result = new CreateAutoteilResult();
+				$result->status_code = AutoTeileService::INVALID_INPUT;
+				$result->validation_messages["bestand"] = "Die Bestandangabe ist eine Pflichtangabe. Bitte geben Sie einen Bestand in Zahlen ein!";
 				return $result;
 			}
 			

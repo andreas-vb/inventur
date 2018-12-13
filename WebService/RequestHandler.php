@@ -119,7 +119,28 @@ $app->put(
 
 		if ($autoteil->inventur_date == "") {
 			$validation_messages = array();
-			$validation_messages["inventur_date"] = "Das Fälligkeitsdatum ist eine Pflichtangabe. Bitte geben Sie einen Datum an.";
+			$validation_messages["inventur_date"] = "Das Fälligkeitsdatum ist eine Pflichtangabe. Bitte geben Sie ein Datum an!";
+			$response = $response->withStatus(400);
+			return $response->withJson($validation_messages);
+		}	
+
+		if ($autoteil->notes == "") {
+			$validation_messages = array();
+			$validation_messages["notes"] = "Das Notizfeld ist eine Pflichtangabe. Bitte geben Sie eine Notiz ein!";
+			$response = $response->withStatus(400);
+			return $response->withJson($validation_messages);
+		}	
+
+		if ($autoteil->preis == "") {
+			$validation_messages = array();
+			$validation_messages["preis"] = "Die Preisangabe ist eine Pflichtangabe. Bitte geben Sie einen Preis in Zahlen ein!";
+			$response = $response->withStatus(400);
+			return $response->withJson($validation_messages);
+		}
+
+		if ($autoteil->bestand == "") {
+			$validation_messages = array();
+			$validation_messages["bestand"] = "Die Bestandangabe ist eine Pflichtangabe. Bitte geben Sie einen Bestand in Zahlen ein!";
 			$response = $response->withStatus(400);
 			return $response->withJson($validation_messages);
 		}		

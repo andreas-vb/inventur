@@ -18,6 +18,26 @@ body {
 	margin-right: auto;
 	}
 	
+textarea {
+resize: none;
+overflow: word-spacing;
+border: 1px solid;
+}
+
+textarea:focus {
+background-color: #D8D8D8;
+}
+
+input {
+height:25px;
+width:220px;
+border: 1px solid;
+}
+
+input:focus {
+background-color: #D8D8D8;
+}
+	
 #menu_bar {
 text-align: center;
 }
@@ -96,6 +116,10 @@ text-align: center;
   	 a.delete_autoteil:hover {
 	 color: #B40404;
 	 }
+	 
+	.input_field {
+	height:50px;
+	}
  
  body > div { 
 	border-width: 1px; 
