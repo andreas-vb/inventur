@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `inventur` (
   `inventur_date` date NOT NULL,
   `farbe` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin,
   `bestand` int(16) NOT NULL,
-  `preis` int(16) NOT NULL,
+  `preis` float(16) NOT NULL,
   `author` varchar(30) NOT NULL,
   `version` int(16) NOT NULL,
   PRIMARY KEY (`id`)
