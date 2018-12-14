@@ -26,6 +26,7 @@ $.widget("autoteil.liste", {
 			autoteilElement.find(".title").text(autoteil.title);
 			autoteilElement.find(".author").text(autoteil.author);
 			autoteilElement.find(".inventur_date").text(autoteil.inventur_date);
+			autoteilElement.find(".gesamt").text((autoteil.preis * autoteil.bestand) + " €");
 			autoteilElement.click(autoteil.url, function(event) {
 				that._trigger("onAutoteilClicked", null, event.data);
 			});	

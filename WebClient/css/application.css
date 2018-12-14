@@ -9,7 +9,7 @@
 
 body { 
 	font-family: Verdana;
-	width: 850px;
+	width: 980px;
 	position: relative;
 	background-color: #D8D8D8;
 	margin-top: 30px;
@@ -74,8 +74,14 @@ text-align: center;
  
    .title {
 	 color:#5882FA;
-	 text-align: center;
+	 display: inline-block;
+	 width: 300px;
  }
+ 
+   .gesamt {
+   	 color:#115a0d;
+	 text-align: center
+   }
  
    .gesamtwert {
 	 color:#115a0d;
